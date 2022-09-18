@@ -47,6 +47,22 @@
     enableFishIntegration = true;
   };
 
+  programs.fish = {
+    enable = true;
+
+    functions = {
+      track_directories = {
+        description = "For directory tracking in emacs vterm";
+        onEvent = "fish_postexec";
+        body = "printf \'\\e]51;A\'(pwd)\'\\e\\\\\'";
+      };
+    };
+
+    shellInit = ''
+    track_directories
+    '';
+  };
+
   programs.git = {
     enable = true;
     userName = "larstvei";
