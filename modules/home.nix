@@ -63,6 +63,16 @@
     '';
   };
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      character = {
+        success_symbol = "[λ](bold green)";
+        error_symbol = "[λ](bold red)";
+      };
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "larstvei";
