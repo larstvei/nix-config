@@ -1,0 +1,38 @@
+* My macOS config
+
+  This repo contains a declarative specification of the setup of my mac, using
+  [[https://nixos.org/][Nix]], with [[https://github.com/LnL7/nix-darwin][nix-darwin]] and [[https://nixos.wiki/wiki/Flakes][Nix Flakes]]. The initial setup is mimicked after
+  [[https://github.com/shaunsingh/nix-darwin-dotfiles][shaunsingh's setup]]. [[https://brew.sh/][Homebrew]] is installed for its cask support (i.e. mac apps
+  lacking a Nix derivation).
+
+* Steps to install
+
+  1. [[https://nixos.org/download.html#nix-install-macos][Install Nix for macOS]]
+     #+begin_src sh
+     sh <(curl -L https://nixos.org/nix/install)
+     #+end_src
+  2. [[https://brew.sh/][Install Homebrew]]
+     #+begin_src sh
+     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+     #+end_src
+  3. Clone this repo (assuming there is no =~/.config= on the system already)
+     #+begin_src sh
+     git clone --recurse-submodules https://github.com/larstvei/dotfiles.git ~/.config
+     #+end_src
+     Note that the =--recurse-submodules= pulls down my [[https://github.com/larstvei/dot-emacs/][Emacs configuration]],
+     which is not necessary for the setup to work.
+  4. Build the setup from =flake.nix=
+     #+begin_src sh
+     cd ~/.config/
+     nix build .#darwinConfigurations.larstvei-macbookpro.system --extra-experimental-features nix-command --extra-experimental-features flakes
+     ./result/sw/bin/darwin-rebuild switch --flake .#larstvei-macbookpro
+     #+end_src
+
+* Maintaining
+
+  After making changes, I run the following command (from the =~/.config=
+  directory):
+
+  #+begin_src sh
+  darwin-rebuild switch --flake .#larstvei-macbookpro
+  #+end_src
