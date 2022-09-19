@@ -27,34 +27,37 @@
   '';
 
   networking.hostName = "macbookpro";
-  system.stateVersion = 4;
 
-  system.keyboard = {
-    enableKeyMapping = true;
-    remapCapsLockToControl = true;
-  };
-  system.defaults = {
-    screencapture = { location = "/tmp"; };
-    dock = {
-      autohide = true;
-      showhidden = true;
-      mru-spaces = false;
-    };
-    finder = {
-      AppleShowAllExtensions = true;
-      QuitMenuItem = true;
-      FXEnableExtensionChangeWarning = true;
-    };
+  system = {
+    stateVersion = 4;
 
-    NSGlobalDomain = {
-      AppleKeyboardUIMode = 3;
-      ApplePressAndHoldEnabled = false;
-      AppleFontSmoothing = 1;
-      _HIHideMenuBar = true;
-      InitialKeyRepeat = 15;
-      KeyRepeat = 1;
-      "com.apple.mouse.tapBehavior" = 1;
-      "com.apple.swipescrolldirection" = true;
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
+    };
+    defaults = {
+      screencapture = { location = "/tmp"; };
+      dock = {
+        autohide = true;
+        showhidden = true;
+        mru-spaces = false;
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        QuitMenuItem = true;
+        FXEnableExtensionChangeWarning = true;
+      };
+
+      NSGlobalDomain = {
+        AppleKeyboardUIMode = 3;
+        ApplePressAndHoldEnabled = false;
+        AppleFontSmoothing = 1;
+        _HIHideMenuBar = true;
+        InitialKeyRepeat = 15;
+        KeyRepeat = 1;
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.swipescrolldirection" = true;
+      };
     };
   };
 
