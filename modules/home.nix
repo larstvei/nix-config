@@ -35,6 +35,7 @@
     bat
     fd
     fzf
+    ffmpeg
     ripgrep
     nixpkgs-fmt
     tree
