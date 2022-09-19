@@ -32,6 +32,7 @@
     sqlite
     htop
     (aspellWithDicts (ds: with ds; [ en en-computers en-science ]))
+    bat
     fd
     fzf
     ripgrep
