@@ -37,6 +37,7 @@
     fzf
     ffmpeg
     ripgrep
+    rnix-lsp
     nixpkgs-fmt
     tree
     wget
