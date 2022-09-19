@@ -63,6 +63,7 @@
     onActivation.upgrade = true;
     casks = [
       "amethyst"
+      "google-chrome"
       "raycast"
       "iina"
     ];
