@@ -49,31 +49,28 @@
           services.nix-daemon.enable = true;
 
           nixpkgs = {
+
             config.allpwUnfree = true;
-            overlays =
-              let
-                versionOf = input: input.rev;
-              in
-                with inputs; [
-                  (final: prev: {
-                    emacs-mac = (prev.emacs.override {
-                      srcRepo = true;
-                      nativeComp = true;
-                      withSQLite3 = true;
-                      withNS = true;
-                    }).overrideAttrs (o: rec {
-                      version = "29.0.50";
-                      src = inputs.emacs-src;
 
-                      patches = [
-                        ./patches/fix-window-role.patch
-                        ./patches/my-no-titlebar.patch
-                        ./patches/system-appearance.patch
-                      ];
+            overlays = with inputs; [
+              (final: prev: {
+                emacs-mac = (prev.emacs.override {
+                  srcRepo = true;
+                  nativeComp = true;
+                  withSQLite3 = true;
+                  withNS = true;
+                }).overrideAttrs (o: rec {
+                  version = "29.0.50";
+                  src = inputs.emacs-src;
 
-                    });
-                  })
-                ];
+                  patches = [
+                    ./patches/fix-window-role.patch
+                    ./patches/my-no-titlebar.patch
+                    ./patches/system-appearance.patch
+                  ];
+                });
+              })
+            ];
           };
         })
       ];
