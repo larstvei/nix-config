@@ -40,6 +40,9 @@
     wget
   ];
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
   programs.fzf = {
