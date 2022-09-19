@@ -11,7 +11,7 @@
   };
 
   fonts = {
-    fontDir.enable = true;
+    fontDir.enable = false;
     fonts = with pkgs; [
       fira
       fira-code
