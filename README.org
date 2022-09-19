@@ -1,9 +1,12 @@
-* My macOS config
+* nix-config for macOS
 
   This repo contains a declarative specification of the setup of my mac, using
   [[https://nixos.org/][Nix]], with [[https://github.com/LnL7/nix-darwin][nix-darwin]] and [[https://nixos.wiki/wiki/Flakes][Nix Flakes]]. The initial setup is mimicked after
-  [[https://github.com/shaunsingh/nix-darwin-dotfiles][shaunsingh's setup]]. [[https://brew.sh/][Homebrew]] is installed for its cask support (i.e. mac apps
-  lacking a Nix derivation).
+  [[https://github.com/shaunsingh/nix-darwin-dotfiles][shaunsingh's setup]]. [[https://brew.sh/][Homebrew]] is installed for its cask support (i.e. for mac
+  apps lacking a Nix derivation).
+
+  Note that I am a complete novice in Nix, so this is not a reliable source for
+  nix-stuffs (copy at your own risk).
 
 * Steps to install
 
