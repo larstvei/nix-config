@@ -65,7 +65,7 @@
 
                   patches = [
                     ./patches/fix-window-role.patch
-                    ./patches/my-no-titlebar.patch
+                    ./patches/no-titlebar-rounded-corners.patch
                     ./patches/system-appearance.patch
                   ];
                 });
