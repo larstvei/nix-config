@@ -50,8 +50,6 @@
 
           nixpkgs = {
 
-            config.allpwUnfree = true;
-
             overlays = with inputs; [
               (final: prev: {
                 emacs-mac = (prev.emacs.override {
