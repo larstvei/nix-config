@@ -20,6 +20,8 @@
     ];
   };
 
+  users.users."larstvei".home = "/Users/larstvei";
+
   programs.fish.enable = true;
   system.activationScripts.postActivation.text = ''
     # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does

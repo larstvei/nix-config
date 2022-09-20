@@ -30,6 +30,7 @@
       (epkgs: with epkgs; [
         vterm
         pdf-tools
+        pkgs.mu
       ]))
     (aspellWithDicts
       (dpkgs: with dpkgs; [
@@ -52,6 +53,30 @@
 
   # Somehow related to: https://github.com/NixOS/nixpkgs/issues/1000
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
+
+  accounts.email = {
+    accounts.uio = {
+      address = "larstvei@ifi.uio.no";
+      userName = "larstvei@ifi.uio.no";
+      realName = "Lars Tveito";
+      imap.host = "imap.uio.no";
+      smtp.host = "smtp.uio.no";
+
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        # Because of Office 365, see: https://kdecherf.com/blog/2017/05/01/mbsync-and-office-365/
+        extraConfig.account.Timeout = 120;
+        extraConfig.account.PipelineDepth = 1;
+      };
+
+      msmtp.enable = true;
+      mu.enable = true;
+
+      primary = true;
+      passwordCommand = "security find-internet-password -s imap.uio.no -a larstvei -w";
+    };
+  };
 
   programs = {
 
@@ -97,6 +122,10 @@
       userEmail = "larstvei@ifi.uio.no";
       ignores = [ ".dir-locals.el" ".envrc" ".DS_Store" ];
     };
+
+    mu.enable = true;
+    msmtp.enable = true;
+    mbsync.enable = true;
 
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
