@@ -25,6 +25,7 @@
       '';
   };
 
+
   home.packages = with pkgs; [
     ((emacsPackagesFor emacs-mac).emacsWithPackages
       (epkgs: with epkgs; [
@@ -38,15 +39,31 @@
         en-computers
         en-science
       ]))
+    (python3.withPackages
+      (python-packages: with python-packages; [
+        hypothesis
+        graphviz
+        z3
+      ]))
     bat
+    clojure
     fd
     ffmpeg
     fzf
+    go
+    graphviz
     htop
+    inkscape
+    leiningen
     nixpkgs-fmt
+    openjdk17_headless
+    pandoc
+    parallel
+    poppler_utils
     ripgrep
     rnix-lsp
-    sqlite
+    rustup
+    texlive.combined.scheme-full
     tree
     wget
   ];
@@ -79,12 +96,6 @@
   };
 
   programs = {
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
     fzf = {
       enable = true;
       enableFishIntegration = true;

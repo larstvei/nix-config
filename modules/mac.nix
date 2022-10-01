@@ -70,6 +70,7 @@
       "amethyst"
       "google-chrome"
       "raycast"
+      "remarkable"
       "iina"
     ];
   };
