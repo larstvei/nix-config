@@ -68,6 +68,7 @@
     onActivation.upgrade = true;
     casks = [
       "amethyst"
+      "expressvpn"
       "google-chrome"
       "raycast"
       "remarkable"
