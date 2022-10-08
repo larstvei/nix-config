@@ -46,6 +46,7 @@
         z3
       ]))
     bat
+    cloc
     clojure
     fd
     ffmpeg
