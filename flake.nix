@@ -22,7 +22,7 @@
     };
 
     emacs-src = {
-      url = "github:emacs-mirror/emacs";
+      url = "github:emacs-mirror/emacs?rev=7fe22182d3abcb3124c50f717cc74925800b7720";
       flake = false;
     };
   };
