@@ -114,7 +114,9 @@
       };
 
       shellInit = ''
-        track_directories
+        if test "$TERM" != "dumb"
+            track_directories
+        end
       '';
     };
 
