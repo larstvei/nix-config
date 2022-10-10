@@ -57,7 +57,7 @@
     inkscape
     leiningen
     nixpkgs-fmt
-    openjdk17_headless
+    jdk
     pandoc
     parallel
     poppler_utils
