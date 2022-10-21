@@ -46,6 +46,7 @@
         z3
       ]))
     bat
+    cbqn
     cloc
     clojure
     fd
