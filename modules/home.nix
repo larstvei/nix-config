@@ -64,6 +64,7 @@
     poppler_utils
     ripgrep
     rnix-lsp
+    rust-analyzer
     rustup
     texlive.combined.scheme-full
     tree
