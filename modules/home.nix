@@ -44,6 +44,7 @@
         hypothesis
         graphviz
         z3
+        pygments
       ]))
     bat
     cbqn
