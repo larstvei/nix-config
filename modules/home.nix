@@ -53,6 +53,7 @@
     fd
     ffmpeg
     fzf
+    ghc
     go
     graphviz
     htop
