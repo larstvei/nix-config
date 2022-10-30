@@ -53,7 +53,10 @@
     fd
     ffmpeg
     fzf
-    ghc
+    (haskell.packages.ghc94.ghcWithPackages
+      (ps: with ps; [
+        QuickCheck
+      ]))
     go
     graphviz
     htop
