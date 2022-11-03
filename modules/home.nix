@@ -71,6 +71,7 @@
     rnix-lsp
     rust-analyzer
     rustup
+    shortcat
     texlive.combined.scheme-full
     tree
     wget

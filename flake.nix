@@ -49,6 +49,8 @@
           services.nix-daemon.enable = true;
 
           nixpkgs = {
+            
+            config.allowUnfree = true;
 
             overlays = with inputs; [
               (final: prev: {
