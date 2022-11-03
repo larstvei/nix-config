@@ -148,6 +148,9 @@
     msmtp.enable = true;
     mbsync.enable = true;
 
+    # Sets JAVA_HOME environment variable
+    java.enable = true;
+
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
   };
