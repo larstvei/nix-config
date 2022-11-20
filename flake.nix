@@ -69,6 +69,8 @@
                     ./patches/system-appearance.patch
                   ];
                 });
+
+               maude-mac = final.callPackage ./pkgs/maude-mac {};
               })
             ];
           };

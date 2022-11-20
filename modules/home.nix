@@ -37,6 +37,7 @@
     htop
     inkscape
     leiningen
+    maude-mac
     nixpkgs-fmt
     jdk
     pandoc
