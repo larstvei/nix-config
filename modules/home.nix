@@ -13,6 +13,7 @@
         en
         en-computers
         en-science
+        nb
       ]))
     (python3.withPackages
       (python-packages: with python-packages; [
