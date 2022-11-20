@@ -70,7 +70,7 @@
                   ];
                 });
 
-               maude-mac = final.callPackage ./pkgs/maude-mac {};
+                maude-mac = final.callPackage ./pkgs/maude-mac { };
               })
             ];
           };
