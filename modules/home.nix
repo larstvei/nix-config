@@ -41,6 +41,7 @@
     maude-mac
     nixpkgs-fmt
     jdk
+    jq
     pandoc
     parallel
     poppler_utils
