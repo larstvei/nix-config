@@ -15,7 +15,7 @@
         en-science
         nb
       ]))
-    (python3.withPackages
+    (python311.withPackages
       (python-packages: with python-packages; [
         hypothesis
         graphviz
