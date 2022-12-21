@@ -69,6 +69,7 @@
     casks = [
       "amethyst"
       "expressvpn"
+      "dropbox"
       "google-chrome"
       "raycast"
       "remarkable"
