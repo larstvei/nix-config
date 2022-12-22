@@ -22,7 +22,7 @@
     };
 
     emacs-src = {
-      url = "github:emacs-mirror/emacs?rev=7fe22182d3abcb3124c50f717cc74925800b7720";
+      url = "github:emacs-mirror/emacs";
       flake = false;
     };
   };
@@ -49,7 +49,7 @@
           services.nix-daemon.enable = true;
 
           nixpkgs = {
-            
+
             config.allowUnfree = true;
 
             overlays = with inputs; [
@@ -60,7 +60,7 @@
                   withSQLite3 = true;
                   withNS = true;
                 }).overrideAttrs (o: rec {
-                  version = "29.0.50";
+                  version = "30.0.50";
                   src = inputs.emacs-src;
 
                   patches = [
