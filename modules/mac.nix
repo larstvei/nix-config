@@ -68,12 +68,12 @@
     onActivation.upgrade = true;
     casks = [
       "amethyst"
-      "expressvpn"
       "dropbox"
+      "expressvpn"
       "google-chrome"
+      "iina"
       "raycast"
       "remarkable"
-      "iina"
     ];
   };
 }
