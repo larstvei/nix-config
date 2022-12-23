@@ -21,10 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    emacs-src = {
-      url = "github:emacs-mirror/emacs";
-      flake = false;
-    };
+    emacs.url = github:nix-community/emacs-overlay;
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: {
@@ -53,22 +50,15 @@
             config.allowUnfree = true;
 
             overlays = with inputs; [
+              emacs.overlays.emacs
+              emacs.overlays.package
               (final: prev: {
-                emacs-mac = (prev.emacs.override {
-                  srcRepo = true;
-                  nativeComp = true;
-                  withSQLite3 = true;
-                  withNS = true;
-                }).overrideAttrs (o: rec {
-                  version = "30.0.50";
-                  src = inputs.emacs-src;
-
+                emacsGit = (prev.emacsGit.overrideAttrs (o: rec {
                   patches = [
-                    ./patches/fix-window-role.patch
                     ./patches/no-titlebar-rounded-corners.patch
                     ./patches/system-appearance.patch
                   ];
-                });
+                }));
 
                 maude-mac = final.callPackage ./pkgs/maude-mac { };
               })
