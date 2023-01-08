@@ -17,10 +17,14 @@
       ]))
     (python3.withPackages
       (python-packages: with python-packages; [
-        hypothesis
         graphviz
-        z3
+        hypothesis
+        matplotlib
+        numpy
+        pandas
         pygments
+        scipy
+        z3
       ]))
     bat
     cbqn
