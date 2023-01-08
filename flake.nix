@@ -2,26 +2,23 @@
   description = "Lars' MacBook Pro";
 
   inputs = {
-
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixpkgs-22.05-darwin";
     };
-
-    nixpkgs-unstable.url = github:NixOS/nixpkgs/nixpkgs-unstable;
-
-    # Nix-Darwin
+    nixpkgs-unstable = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
     darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    # HM-manager for dotfile/user management
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    emacs.url = github:nix-community/emacs-overlay;
+    emacs = {
+      url = "github:nix-community/emacs-overlay";
+    };
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: {
@@ -46,9 +43,7 @@
           services.nix-daemon.enable = true;
 
           nixpkgs = {
-
             config.allowUnfree = true;
-
             overlays = with inputs; [
               emacs.overlays.emacs
               emacs.overlays.package
@@ -59,7 +54,6 @@
                     ./patches/system-appearance.patch
                   ];
                 }));
-
                 maude-mac = final.callPackage ./pkgs/maude-mac { };
               })
             ];
