@@ -23,6 +23,7 @@
         numpy
         pandas
         pygments
+        python-lsp-server
         scipy
         z3
       ]))
