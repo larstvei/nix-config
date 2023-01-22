@@ -25,6 +25,7 @@
         pygments
         python-lsp-server
         scipy
+        scikit-learn
         z3
       ]))
     bat
@@ -38,6 +39,7 @@
       (ps: with ps; [
         QuickCheck
       ]))
+    stack
     go
     graphviz
     htop
@@ -50,6 +52,7 @@
     pandoc
     parallel
     poppler_utils
+    pdf2svg
     ripgrep
     rnix-lsp
     rust-analyzer
@@ -105,6 +108,7 @@
       };
 
       shellInit = ''
+        set PATH "$PATH:/usr/local/texlive/2022/bin/universal-darwin/"
         if test "$TERM" != "dumb"
             track_directories
         end

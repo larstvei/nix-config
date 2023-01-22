@@ -72,6 +72,7 @@
       "expressvpn"
       "google-chrome"
       "iina"
+      "mactex"
       "raycast"
       "remarkable"
     ];
