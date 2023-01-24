@@ -28,6 +28,10 @@
         scikit-learn
         z3
       ]))
+    (haskell.packages.ghc94.ghcWithPackages
+      (ps: with ps; [
+        QuickCheck
+      ]))
     bat
     cbqn
     cloc
@@ -35,29 +39,25 @@
     fd
     ffmpeg
     fzf
-    (haskell.packages.ghc94.ghcWithPackages
-      (ps: with ps; [
-        QuickCheck
-      ]))
-    stack
     go
     graphviz
     htop
     inkscape
+    jdk
+    jq
     leiningen
     maude-mac
     nixpkgs-fmt
-    jdk
-    jq
     pandoc
     parallel
-    poppler_utils
     pdf2svg
+    poppler_utils
     ripgrep
     rnix-lsp
     rust-analyzer
     rustup
     shortcat
+    stack
     texlive.combined.scheme-full
     tree
     wget
