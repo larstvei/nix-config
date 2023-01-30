@@ -73,6 +73,7 @@
       "google-chrome"
       "iina"
       "mactex"
+      "orion"
       "raycast"
       "remarkable"
     ];
