@@ -40,12 +40,14 @@
     ffmpeg
     fzf
     go
+    gopls
     graphviz
     htop
     inkscape
     jdk
     jq
     leiningen
+    karabiner-elements
     maude-mac
     nixpkgs-fmt
     pandoc
