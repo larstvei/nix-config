@@ -72,6 +72,7 @@
       "expressvpn"
       "google-chrome"
       "iina"
+      "karabiner-elements"
       "mactex"
       "orion"
       "raycast"

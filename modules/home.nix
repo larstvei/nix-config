@@ -47,7 +47,6 @@
     jdk
     jq
     leiningen
-    karabiner-elements
     maude-mac
     nixpkgs-fmt
     pandoc
