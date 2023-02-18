@@ -77,6 +77,7 @@
       "orion"
       "raycast"
       "remarkable"
+      "signal"
     ];
   };
 }
