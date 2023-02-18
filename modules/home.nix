@@ -110,6 +110,7 @@
 
       shellInit = ''
         set PATH "$PATH:/usr/local/texlive/2022/bin/universal-darwin/"
+        export DIRENV_LOG_FORMAT=
         if test "$TERM" != "dumb"
             track_directories
         end
@@ -131,6 +132,11 @@
       userName = "larstvei";
       userEmail = "larstvei@ifi.uio.no";
       ignores = [ ".dir-locals.el" ".envrc" ".DS_Store" ];
+    };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
 
     mu.enable = true;
