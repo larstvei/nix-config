@@ -65,7 +65,11 @@
 
   homebrew = {
     enable = true;
-    onActivation.upgrade = true;
+    onActivation = {
+      upgrade = true;
+      cleanup = "uninstall";
+    };
+    taps = [ "homebrew/cask" ];
     casks = [
       "amethyst"
       "dropbox"
