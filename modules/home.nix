@@ -28,7 +28,7 @@
         scikit-learn
         z3
       ]))
-    (haskell.packages.ghc94.ghcWithPackages
+    (haskell.packages.ghc96.ghcWithPackages
       (ps: with ps; [
         QuickCheck
       ]))
