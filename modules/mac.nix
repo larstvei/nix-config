@@ -82,6 +82,7 @@
       "raycast"
       "remarkable"
       "signal"
+      "zoom"
     ];
   };
 }
