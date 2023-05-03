@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   pname = "maude";
-  version = "3.2.1";
+  version = "3.3";
 
   src = fetchurl {
-    url = "https://github.com/SRI-CSL/Maude/releases/download/${version}/Maude-${version}-macos.zip";
-    sha256 = "sha256-m+bgdYzzoQq6knrUkRtr3rXqHLNgr3kquKzuSUIDa2I=";
+    url = "https://github.com/SRI-CSL/Maude/releases/download/Maude${version}/Maude-macos.zip";
+    sha256 = "sha256-ulo4zdmBJQYjvlsmS5L5uhmsxIKzLJ2BKE+mwJYMnbE=";
   };
 
   nativeBuildInputs = [ unzip ];
