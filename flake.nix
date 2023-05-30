@@ -48,12 +48,16 @@
               emacs.overlays.emacs
               emacs.overlays.package
               (final: prev: {
-                emacsGit = (prev.emacsGit.overrideAttrs (o: rec {
+                emacsGit = (prev.emacsGit.override {
+                  withXwidgets = true;
+                  withGTK3 = true;
+                }).overrideAttrs (o: rec {
+                  buildInputs = o.buildInputs ++ [ prev.darwin.apple_sdk.frameworks.WebKit ];
                   patches = [
                     ./patches/no-titlebar-rounded-corners.patch
                     ./patches/system-appearance.patch
                   ];
-                }));
+                });
                 maude-mac = final.callPackage ./pkgs/maude-mac { };
               })
             ];
