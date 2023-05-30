@@ -55,7 +55,7 @@
     poppler_utils
     ripgrep
     rnix-lsp
-    rust-analyzer
+    # rust-analyzer
     rustup
     shortcat
     stack
