@@ -114,6 +114,7 @@
         if test "$TERM" != "dumb"
             track_directories
         end
+        direnv reload 2> /dev/null
       '';
     };
 
