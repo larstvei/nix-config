@@ -48,6 +48,7 @@
     jq
     leiningen
     maude-mac
+    minizinc
     nixpkgs-fmt
     pandoc
     parallel
