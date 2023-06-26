@@ -48,7 +48,7 @@
               emacs.overlays.emacs
               emacs.overlays.package
               (final: prev: {
-                emacsGit = (prev.emacsGit.override {
+                emacs-git = (prev.emacs-git.override {
                   withXwidgets = true;
                   withGTK3 = true;
                 }).overrideAttrs (o: rec {

@@ -2,7 +2,7 @@
 
 
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacsGit).emacsWithPackages
+    ((emacsPackagesFor emacs-git).emacsWithPackages
       (epkgs: with epkgs; [
         vterm
         pdf-tools
