@@ -49,7 +49,8 @@
               emacs.overlays.package
               (final: prev: {
                 emacs-git = (prev.emacs-git.override {
-                  withXwidgets = true;
+                  # withXwidgets = true;
+                  withTreeSitter = true;
                   withGTK3 = true;
                 }).overrideAttrs (o: rec {
                   buildInputs = o.buildInputs ++ [ prev.darwin.apple_sdk.frameworks.WebKit ];

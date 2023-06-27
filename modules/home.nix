@@ -6,6 +6,7 @@
       (epkgs: with epkgs; [
         vterm
         pdf-tools
+        treesit-grammars.with-all-grammars
         pkgs.mu
       ]))
     (aspellWithDicts

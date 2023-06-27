@@ -17,6 +17,9 @@
       fira-code
       roboto
       roboto-mono
+      source-sans
+      source-code-pro
+      source-serif
     ];
   };
 
