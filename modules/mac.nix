@@ -72,11 +72,13 @@
       upgrade = true;
       cleanup = "uninstall";
     };
-    taps = [ "homebrew/cask" ];
+    taps = [ "homebrew/cask" "sourcegraph/src-cli" "homebrew/cask-versions" ];
     casks = [
       "amethyst"
+      "docker"
       "dropbox"
       "expressvpn"
+      "firefox-developer-edition"
       "google-chrome"
       "iina"
       "karabiner-elements"
@@ -86,6 +88,12 @@
       "remarkable"
       "signal"
       "zoom"
+    ];
+    brews = [
+      {
+        name = "src-cli";
+        link = true;
+      }
     ];
   };
 }
