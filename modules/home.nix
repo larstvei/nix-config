@@ -161,7 +161,7 @@
       enable = true;
       userName = "larstvei";
       userEmail = "larstvei@ifi.uio.no";
-      ignores = [ ".dir-locals.el" ".envrc" ".DS_Store" ];
+      ignores = [ ".envrc" ".DS_Store" ];
     };
 
     direnv = {
