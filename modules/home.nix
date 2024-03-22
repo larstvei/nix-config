@@ -103,9 +103,6 @@
           {
             type = "basic";
             from = {
-              modifiers = {
-                optional = [ "any" ];
-              };
               simultaneous = [
                 { key_code = "f"; }
                 { key_code = "d"; }
