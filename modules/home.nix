@@ -137,17 +137,26 @@
 
       shellInit = ''
         set PATH "$PATH:/usr/local/texlive/2022/bin/universal-darwin/"
-        export DIRENV_LOG_FORMAT=
+
         if test "$TERM" != "dumb"
             track_directories
         end
-        direnv reload 2> /dev/null
+
+        set -gx DIRENV_LOG_FORMAT ""
+        direnv hook fish | source
       '';
     };
 
     starship = {
       enable = true;
       settings = {
+        custom = {
+          direnv = {
+            format = "[\\[direnv\\]]($style) ";
+            style = "fg:yellow dimmed";
+            when = "env | grep -E '^DIRENV_FILE='";
+          };
+        };
         character = {
           success_symbol = "[λ](bold green)";
           error_symbol = "[λ](bold red)";
