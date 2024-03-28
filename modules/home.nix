@@ -51,13 +51,13 @@
     leiningen
     # maude-mac
     minizinc
+    nil
     nixpkgs-fmt
     pandoc
     parallel
     pdf2svg
     poppler_utils
     ripgrep
-    # rnix-lsp
     # rust-analyzer
     rustup
     shortcat
