@@ -2,7 +2,7 @@
 
 
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacs-git).emacsWithPackages
+    ((emacsPackagesFor emacs29).emacsWithPackages
       (epkgs: with epkgs; [
         vterm
         pdf-tools
@@ -49,7 +49,7 @@
     jdk
     jq
     leiningen
-    maude-mac
+    # maude-mac
     minizinc
     nixpkgs-fmt
     pandoc
@@ -57,7 +57,7 @@
     pdf2svg
     poppler_utils
     ripgrep
-    rnix-lsp
+    # rnix-lsp
     # rust-analyzer
     rustup
     shortcat

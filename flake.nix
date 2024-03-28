@@ -16,9 +16,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    emacs = {
-      url = "github:nix-community/emacs-overlay";
-    };
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: {
@@ -45,20 +42,7 @@
           nixpkgs = {
             config.allowUnfree = true;
             overlays = with inputs; [
-              emacs.overlays.emacs
-              emacs.overlays.package
               (final: prev: {
-                emacs-git = (prev.emacs-git.override {
-                  # withXwidgets = true;
-                  withTreeSitter = true;
-                  withGTK3 = true;
-                }).overrideAttrs (o: rec {
-                  buildInputs = o.buildInputs ++ [ prev.darwin.apple_sdk.frameworks.WebKit ];
-                  patches = [
-                    ./patches/no-titlebar-rounded-corners.patch
-                    ./patches/system-appearance.patch
-                  ];
-                });
                 maude-mac = final.callPackage ./pkgs/maude-mac { };
               })
             ];
