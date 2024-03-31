@@ -52,7 +52,7 @@
     # maude-mac
     minizinc
     nil
-    nixpkgs-fmt
+    nixfmt
     pandoc
     parallel
     pdf2svg
