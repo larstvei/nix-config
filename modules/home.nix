@@ -136,12 +136,9 @@
       };
 
       shellInit = ''
-        set PATH "$PATH:/usr/local/texlive/2022/bin/universal-darwin/"
-
         if test "$TERM" != "dumb"
             track_directories
         end
-
         set -gx DIRENV_LOG_FORMAT ""
         direnv hook fish | source
       '';
