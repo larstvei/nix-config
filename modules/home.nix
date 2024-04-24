@@ -1,15 +1,8 @@
-{ pkgs, lib, config, home-manager, nix-darwin, inputs, ... }: {
+{ pkgs, lib, config, home-manager, nix-darwin, inputs, emacs-larstvei, ... }: {
 
 
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacs29).emacsWithPackages
-      (epkgs: with epkgs; [
-        vterm
-        pdf-tools
-        treesit-grammars.with-all-grammars
-        mu4e
-        pkgs.mu
-      ]))
+    emacs-larstvei.defaultPackage.${pkgs.system}
     (aspellWithDicts
       (dpkgs: with dpkgs; [
         en

@@ -13,9 +13,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emacs-larstvei.url = "github:larstvei/dot-emacs";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, darwin, home-manager, emacs-larstvei, ... }@inputs: {
     darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
 
@@ -28,6 +29,7 @@
             useUserPackages = true;
             users.larstvei = {
               imports = [
+                { _module.args = inputs; } # <- one could ask, why?
                 ./modules/home.nix
               ];
             };
