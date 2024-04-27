@@ -31,6 +31,7 @@
     cbqn
     cloc
     clojure
+    devenv
     fd
     ffmpeg
     fzf
