@@ -1,4 +1,4 @@
-{ pkgs, lib, config, home-manager, nix-darwin, inputs, emacs-larstvei, ... }: {
+{ pkgs, emacs-larstvei, ... }: {
 
 
   home.packages = with pkgs; [
@@ -21,6 +21,7 @@
         python-lsp-server
         scipy
         scikit-learn
+        xlsxwriter
         z3
       ]))
     (haskell.packages.ghc96.ghcWithPackages
@@ -28,6 +29,7 @@
         QuickCheck
       ]))
     bat
+    # cargo
     cbqn
     cloc
     clojure
@@ -41,9 +43,9 @@
     htop
     inkscape
     jdk
+    jet
     jq
     leiningen
-    # maude-mac
     minizinc
     nil
     nixfmt
@@ -54,7 +56,6 @@
     ripgrep
     # rust-analyzer
     rustup
-    shortcat
     stack
     texlive.combined.scheme-full
     tree
@@ -144,7 +145,6 @@
         custom = {
           direnv = {
             format = "[\\[direnv\\]]($style) ";
-            style = "fg:yellow dimmed";
             when = "env | grep -E '^DIRENV_FILE='";
           };
         };

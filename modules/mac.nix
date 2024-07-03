@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, lib, ... }: {
 
   nix = {
     package = pkgs.nix;
@@ -16,6 +16,7 @@
     fonts = with pkgs; [
       fira
       fira-code
+      iosevka
       roboto
       roboto-mono
       source-sans
@@ -70,33 +71,30 @@
   homebrew = {
     enable = true;
     onActivation = {
+      # autoUpdate = true;
       upgrade = true;
       cleanup = "uninstall";
     };
-    taps = [ "homebrew/cask" "sourcegraph/src-cli" "homebrew/cask-versions" ];
+    taps = [ "homebrew/cask" "homebrew/cask-versions" ];
     casks = [
       "amethyst"
+      "arc"
+      "chatgpt"
       "docker"
       "dropbox"
       # "expressvpn"
-      "firefox-developer-edition"
+      # "firefox-developer-edition"
       "google-chrome"
       "iina"
       "karabiner-elements"
-      "mactex"
+      # "mactex"
       "obs"
-      "orion"
+      "ollama"
       "raycast"
       "remarkable"
       "signal"
       "supercollider"
       "zoom"
-    ];
-    brews = [
-      {
-        name = "src-cli";
-        link = true;
-      }
     ];
   };
 }
