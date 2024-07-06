@@ -1,6 +1,5 @@
 { pkgs, kmonad, emacs-larstvei, ... }: {
 
-
   home.packages = with pkgs; [
     emacs-larstvei.defaultPackage.${pkgs.system}
     kmonad.packages.${pkgs.system}.default
@@ -8,7 +7,6 @@
       (dpkgs: with dpkgs; [
         en
         en-computers
-        en-science
         nb
       ]))
     (python3.withPackages
