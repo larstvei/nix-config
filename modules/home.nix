@@ -41,6 +41,7 @@
     gopls
     graphviz
     htop
+    imagemagick
     inkscape
     jdk
     jet
