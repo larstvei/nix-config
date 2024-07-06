@@ -11,19 +11,16 @@
     '';
   };
 
-  fonts = {
-    fontDir.enable = false;
-    fonts = with pkgs; [
-      fira
-      fira-code
-      iosevka
-      roboto
-      roboto-mono
-      source-sans
-      source-code-pro
-      source-serif
-    ];
-  };
+  fonts.packages = with pkgs; [
+    fira
+    fira-code
+    iosevka
+    roboto
+    roboto-mono
+    source-sans
+    source-code-pro
+    source-serif
+  ];
 
   users.users."larstvei".home = "/Users/larstvei";
 
