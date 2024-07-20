@@ -31,8 +31,10 @@
         QuickCheck
       ]))
     bat
+    babashka
     # cargo
     cbqn
+    clj-kondo
     cloc
     clojure
     devenv
@@ -51,6 +53,7 @@
     leiningen
     minizinc
     nil
+    neil
     nixfmt
     pandoc
     parallel
