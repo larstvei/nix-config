@@ -12,15 +12,18 @@
     (python3.withPackages
       (python-packages: with python-packages; [
         graphviz
+        html2text
         hypothesis
         matplotlib
         numpy
+        openpyxl
         pandas
         pygments
         python-lsp-server
-        scipy
         scikit-learn
+        scipy
         xlsxwriter
+        yattag
         z3
       ]))
     (haskell.packages.ghc96.ghcWithPackages
