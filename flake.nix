@@ -17,7 +17,7 @@
       url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-larstvei.url = "github:larstvei/dot-emacs";
+    emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, kmonad, emacs-larstvei, ... }@inputs: {
