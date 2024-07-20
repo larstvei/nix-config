@@ -1,8 +1,7 @@
-{ pkgs, kmonad, emacs-larstvei, ... }: {
+{ pkgs, emacs-larstvei, ... }: {
 
   home.packages = with pkgs; [
     emacs-larstvei.defaultPackage.${pkgs.system}
-    kmonad.packages.${pkgs.system}.default
     (aspellWithDicts
       (dpkgs: with dpkgs; [
         en

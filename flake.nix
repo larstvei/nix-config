@@ -13,14 +13,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    kmonad = {
-      url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, kmonad, emacs-larstvei, ... }@inputs: {
+  outputs = { self, nixpkgs, darwin, home-manager, emacs-larstvei, ... }@inputs: {
     darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
 
