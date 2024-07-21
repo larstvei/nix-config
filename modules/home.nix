@@ -2,12 +2,7 @@
 
   home.packages = with pkgs; [
     emacs-larstvei.defaultPackage.${pkgs.system}
-    (aspellWithDicts
-      (dpkgs: with dpkgs; [
-        en
-        en-computers
-        nb
-      ]))
+    (hunspellWithDicts [ hunspellDicts.nb_NO ])
     (python3.withPackages
       (python-packages: with python-packages; [
         graphviz
@@ -67,8 +62,7 @@
     wget
   ];
 
-  # Somehow related to: https://github.com/NixOS/nixpkgs/issues/1000
-  home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
+  home.file.".config/enchant/hunspell/".source = "${pkgs.hunspellDicts.nb_NO}/share/hunspell/";
 
   home.file.karabiner = {
     target = ".config/karabiner/assets/complex_modifications/df_escape.json";
