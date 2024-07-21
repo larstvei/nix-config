@@ -70,30 +70,6 @@
   # Somehow related to: https://github.com/NixOS/nixpkgs/issues/1000
   home.file.".aspell.conf".text = "data-dir ${pkgs.aspell}/lib/aspell";
 
-  accounts.email = {
-    accounts.uio = {
-      address = "larstvei@ifi.uio.no";
-      userName = "larstvei@ifi.uio.no";
-      realName = "Lars Tveito";
-      imap.host = "imap.uio.no";
-      smtp.host = "smtp.uio.no";
-
-      mbsync = {
-        enable = true;
-        create = "maildir";
-        # Because of Office 365, see: https://kdecherf.com/blog/2017/05/01/mbsync-and-office-365/
-        extraConfig.account.Timeout = 120;
-        extraConfig.account.PipelineDepth = 1;
-      };
-
-      msmtp.enable = true;
-      mu.enable = true;
-
-      primary = true;
-      passwordCommand = "security find-internet-password -s imap.uio.no -a larstvei -w";
-    };
-  };
-
   home.file.karabiner = {
     target = ".config/karabiner/assets/complex_modifications/df_escape.json";
     text = builtins.toJSON {
@@ -171,10 +147,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-
-    mu.enable = true;
-    msmtp.enable = true;
-    mbsync.enable = true;
 
     # Sets JAVA_HOME environment variable
     java.enable = true;
