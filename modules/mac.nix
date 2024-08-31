@@ -87,9 +87,11 @@
       # "mactex"
       "obs"
       "ollama"
+      "processing"
       "raycast"
       "remarkable"
       "signal"
+      "skim"
       "supercollider"
       "zoom"
     ];
