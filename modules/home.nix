@@ -42,6 +42,7 @@
     imagemagick
     inkscape
     jdk
+    jdt-language-server
     jet
     jq
     leiningen
