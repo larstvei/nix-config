@@ -96,6 +96,7 @@
       "signal"
       "skim"
       "supercollider"
+      "utm"
       "zoom"
     ];
   };
