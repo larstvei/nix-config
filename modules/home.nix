@@ -65,30 +65,6 @@
 
   home.file.".config/enchant/hunspell/".source = "${pkgs.hunspellDicts.nb_NO}/share/hunspell/";
 
-  home.file.karabiner = {
-    target = ".config/karabiner/assets/complex_modifications/df_escape.json";
-    text = builtins.toJSON {
-      title = "Simultaneously press f + d to escape";
-      rules = [{
-        description = "Simultaneously press f + d to escape";
-        manipulators = [
-          {
-            type = "basic";
-            from = {
-              simultaneous = [
-                { key_code = "f"; }
-                { key_code = "d"; }
-              ];
-            };
-            to = [
-              { key_code = "escape"; }
-            ];
-          }
-        ];
-      }];
-    };
-  };
-
   programs = {
     fzf = {
       enable = true;

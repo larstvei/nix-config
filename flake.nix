@@ -1,5 +1,5 @@
 {
-  description = "Lars' MacBook Pro";
+  description = "My nix configuration.";
 
   inputs = {
     nixpkgs = {
@@ -21,7 +21,9 @@
       system = "aarch64-darwin";
 
       modules = [
+        ./modules/core.nix
         ./modules/mac.nix
+
         home-manager.darwinModule
         {
           home-manager = {

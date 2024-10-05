@@ -1,17 +1,5 @@
 { pkgs, lib, ... }: {
 
-  nix = {
-    package = pkgs.nix;
-
-    settings = {
-      system = "aarch64-darwin";
-      extra-platforms = [ "aarch64-darwin" "x86_64-darwin" ];
-      experimental-features = [ "nix-command" "flakes" ];
-      build-users-group = "nixbld";
-      trusted-users = [ "root" "larstvei" ];
-    };
-  };
-
   fonts.packages = with pkgs; [
     fira
     fira-code
@@ -26,6 +14,7 @@
   users.users."larstvei".home = "/Users/larstvei";
 
   programs.fish.enable = true;
+
   system.activationScripts.postActivation.text = ''
     # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
     sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish larstvei
