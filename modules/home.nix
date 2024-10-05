@@ -87,7 +87,6 @@
             track_directories
         end
         set -gx DIRENV_LOG_FORMAT ""
-        direnv hook fish | source
       '';
     };
 
@@ -134,5 +133,5 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.05";
+  home.stateVersion = "24.11";
 }
