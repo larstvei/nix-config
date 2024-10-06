@@ -38,7 +38,6 @@
     go
     gopls
     graphviz
-    htop
     imagemagick
     inkscape
     jdk
@@ -59,7 +58,6 @@
     rustup
     stack
     texlive.combined.scheme-full
-    tree
     wget
   ];
 

@@ -23,4 +23,10 @@
       ];
     };
   };
+
+  environment.systemPackages =
+    [ pkgs.git
+      pkgs.htop
+      pkgs.tree
+    ];
 }
