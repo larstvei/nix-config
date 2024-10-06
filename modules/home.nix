@@ -31,7 +31,6 @@
     clj-kondo
     cloc
     clojure
-    devenv
     fd
     ffmpeg
     fzf
