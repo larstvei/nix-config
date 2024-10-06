@@ -38,4 +38,6 @@
     pkgs.htop
     pkgs.tree
   ];
+
+  services.nix-daemon.enable = true;
 }

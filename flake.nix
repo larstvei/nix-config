@@ -46,17 +46,6 @@
               };
             };
           }
-          (
-            {
-              config,
-              pkgs,
-              lib,
-              ...
-            }:
-            {
-              services.nix-daemon.enable = true;
-            }
-          )
         ];
       };
     };
