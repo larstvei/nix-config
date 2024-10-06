@@ -1,16 +1,7 @@
 { pkgs, lib, ... }:
 {
 
-  fonts.packages = with pkgs; [
-    fira
-    fira-code
-    iosevka
-    roboto
-    roboto-mono
-    source-sans
-    source-code-pro
-    source-serif
-  ];
+  fonts.packages = import ./fonts.nix { inherit pkgs; };
 
   users.users."larstvei".home = "/Users/larstvei";
 
