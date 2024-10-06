@@ -16,31 +16,48 @@
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, emacs-larstvei, ... }@inputs: {
-    darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      darwin,
+      home-manager,
+      emacs-larstvei,
+      ...
+    }@inputs:
+    {
+      darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
 
-      modules = [
-        ./modules/core.nix
-        ./modules/macos.nix
+        modules = [
+          ./modules/core.nix
+          ./modules/macos.nix
 
-        home-manager.darwinModule
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.larstvei = {
-              imports = [
-                { _module.args = inputs; } # <- one could ask, why?
-                ./modules/home.nix
-              ];
+          home-manager.darwinModule
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.larstvei = {
+                imports = [
+                  { _module.args = inputs; } # <- one could ask, why?
+                  ./modules/home.nix
+                ];
+              };
             };
-          };
-        }
-        ({ config, pkgs, lib, ... }: {
-          services.nix-daemon.enable = true;
-        })
-      ];
+          }
+          (
+            {
+              config,
+              pkgs,
+              lib,
+              ...
+            }:
+            {
+              services.nix-daemon.enable = true;
+            }
+          )
+        ];
+      };
     };
-  };
 }

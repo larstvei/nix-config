@@ -1,7 +1,15 @@
-{ lib, pkgs, emacs-larstvei, ... }:
+{
+  lib,
+  pkgs,
+  emacs-larstvei,
+  ...
+}:
 let
   concatAttrVals = attrSet: lib.concatMap (x: x) (lib.attrValues attrSet);
-  tools = import ./tools.nix { inherit pkgs; inherit emacs-larstvei; };
+  tools = import ./tools.nix {
+    inherit pkgs;
+    inherit emacs-larstvei;
+  };
   langauges = import ./languages.nix { inherit pkgs; };
 in
 {
@@ -54,7 +62,11 @@ in
       enable = true;
       userName = "larstvei";
       userEmail = "larstvei@ifi.uio.no";
-      ignores = [ ".envrc" ".DS_Store" ".direnv" ];
+      ignores = [
+        ".envrc"
+        ".DS_Store"
+        ".direnv"
+      ];
     };
 
     direnv = {

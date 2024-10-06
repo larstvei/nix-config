@@ -1,5 +1,6 @@
 { pkgs, emacs-larstvei, ... }:
-with pkgs; {
+with pkgs;
+{
 
   editor = [
     emacs-larstvei.defaultPackage.${pkgs.system}

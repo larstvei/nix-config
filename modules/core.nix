@@ -5,10 +5,19 @@
 
     settings = {
       system = "aarch64-darwin";
-      extra-platforms = [ "aarch64-darwin" "x86_64-darwin" ];
-      experimental-features = [ "nix-command" "flakes" ];
+      extra-platforms = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       build-users-group = "nixbld";
-      trusted-users = [ "root" "larstvei" ];
+      trusted-users = [
+        "root"
+        "larstvei"
+      ];
 
       substituters = [
         "https://cache.nixos.org"
@@ -24,9 +33,9 @@
     };
   };
 
-  environment.systemPackages =
-    [ pkgs.git
-      pkgs.htop
-      pkgs.tree
-    ];
+  environment.systemPackages = [
+    pkgs.git
+    pkgs.htop
+    pkgs.tree
+  ];
 }

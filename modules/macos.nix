@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
 
   fonts.packages = with pkgs; [
     fira
@@ -30,7 +31,9 @@
       remapCapsLockToControl = true;
     };
     defaults = {
-      screencapture = { location = "/tmp"; };
+      screencapture = {
+        location = "/tmp";
+      };
       dock = {
         autohide = true;
         showhidden = true;
@@ -62,7 +65,10 @@
       upgrade = true;
       cleanup = "uninstall";
     };
-    taps = [ "homebrew/cask" "homebrew/cask-versions" ];
+    taps = [
+      "homebrew/cask"
+      "homebrew/cask-versions"
+    ];
     casks = [
       "amethyst"
       "arc"

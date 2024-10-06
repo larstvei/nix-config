@@ -1,5 +1,6 @@
 { pkgs, ... }:
-with pkgs; {
+with pkgs;
+{
   bqn = [
     cbqn
   ];
@@ -18,10 +19,11 @@ with pkgs; {
   ];
 
   haskell = [
-    (haskell.packages.ghc96.ghcWithPackages
-      (ps: with ps; [
+    (haskell.packages.ghc96.ghcWithPackages (
+      ps: with ps; [
         QuickCheck
-      ]))
+      ]
+    ))
     stack
   ];
 
@@ -40,12 +42,12 @@ with pkgs; {
 
   nix = [
     nil
-    nixfmt
+    nixfmt-rfc-style
   ];
 
   python = [
-    (python3.withPackages
-      (python-packages: with python-packages; [
+    (python3.withPackages (
+      python-packages: with python-packages; [
         graphviz
         html2text
         hypothesis
@@ -60,7 +62,8 @@ with pkgs; {
         xlsxwriter
         yattag
         z3
-      ]))
+      ]
+    ))
   ];
 
   tex = [
