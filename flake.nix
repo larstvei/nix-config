@@ -17,28 +17,48 @@
   };
 
   outputs =
-    { darwin, home-manager, ... }@inputs:
+    {
+      darwin,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      homeConfig = {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.larstvei = {
+            imports = [
+              { _module.args = inputs; }
+              ./modules/home.nix
+            ];
+          };
+        };
+      };
+    in
     {
       darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
 
         modules = [
+          ./hosts/darwin-m1/configuration.nix
           ./modules/core.nix
-          ./modules/macos.nix
 
           home-manager.darwinModule
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.larstvei = {
-                imports = [
-                  { _module.args = inputs; } # <- one could ask, why?
-                  ./modules/home.nix
-                ];
-              };
-            };
-          }
+          homeConfig
+        ];
+      };
+
+      nixosConfigurations."larstvei-nixos" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux"; # Or "aarch64-linux" for ARM systems
+
+        modules = [
+          ./hosts/nixos-intel-mbp/configuration.nix
+          ./modules/core.nix
+
+          home-manager.nixosModule
+          homeConfig
         ];
       };
     };
