@@ -66,6 +66,12 @@ with pkgs;
     ))
   ];
 
+  rust = [
+    cargo
+    rustc
+    rust-analyzer
+  ];
+
   tex = [
     texlive.combined.scheme-full
   ];
