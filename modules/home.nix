@@ -1,64 +1,11 @@
-{ pkgs, emacs-larstvei, ... }: {
-
-  home.packages = with pkgs; [
-    emacs-larstvei.defaultPackage.${pkgs.system}
-    (hunspellWithDicts [ hunspellDicts.nb_NO ])
-    (python3.withPackages
-      (python-packages: with python-packages; [
-        graphviz
-        html2text
-        hypothesis
-        matplotlib
-        numpy
-        openpyxl
-        pandas
-        pygments
-        python-lsp-server
-        scikit-learn
-        scipy
-        xlsxwriter
-        yattag
-        z3
-      ]))
-    (haskell.packages.ghc96.ghcWithPackages
-      (ps: with ps; [
-        QuickCheck
-      ]))
-    bat
-    babashka
-    # cargo
-    cbqn
-    clj-kondo
-    cloc
-    clojure
-    fd
-    ffmpeg
-    fzf
-    go
-    gopls
-    graphviz
-    imagemagick
-    inkscape
-    jdk
-    jdt-language-server
-    jet
-    jq
-    leiningen
-    minizinc
-    nil
-    neil
-    nixfmt
-    pandoc
-    parallel
-    pdf2svg
-    poppler_utils
-    ripgrep
-    # rust-analyzer
-    rustup
-    stack
-    texlive.combined.scheme-full
-    wget
-  ];
+{ lib, pkgs, emacs-larstvei, ... }:
+let
+  concatAttrVals = attrSet: lib.concatMap (x: x) (lib.attrValues attrSet);
+  tools = import ./tools.nix { inherit pkgs; inherit emacs-larstvei; };
+  langauges = import ./languages.nix { inherit pkgs; };
+in
+{
+  home.packages = concatAttrVals langauges ++ concatAttrVals tools;
 
   home.file.".config/enchant/hunspell/".source = "${pkgs.hunspellDicts.nb_NO}/share/hunspell/";
 

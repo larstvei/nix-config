@@ -22,7 +22,7 @@
 
       modules = [
         ./modules/core.nix
-        ./modules/mac.nix
+        ./modules/macos.nix
 
         home-manager.darwinModule
         {

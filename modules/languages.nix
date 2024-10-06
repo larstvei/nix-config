@@ -1,0 +1,69 @@
+{ pkgs, ... }:
+with pkgs; {
+  bqn = [
+    cbqn
+  ];
+
+  clojure = [
+    babashka
+    clj-kondo
+    clojure
+    leiningen
+    neil
+  ];
+
+  go = [
+    go
+    gopls
+  ];
+
+  haskell = [
+    (haskell.packages.ghc96.ghcWithPackages
+      (ps: with ps; [
+        QuickCheck
+      ]))
+    stack
+  ];
+
+  java = [
+    jdk
+    jdt-language-server
+  ];
+
+  maude = [
+    maude
+  ];
+
+  minizinc = [
+    minizinc
+  ];
+
+  nix = [
+    nil
+    nixfmt
+  ];
+
+  python = [
+    (python3.withPackages
+      (python-packages: with python-packages; [
+        graphviz
+        html2text
+        hypothesis
+        matplotlib
+        numpy
+        openpyxl
+        pandas
+        pygments
+        python-lsp-server
+        scikit-learn
+        scipy
+        xlsxwriter
+        yattag
+        z3
+      ]))
+  ];
+
+  tex = [
+    texlive.combined.scheme-full
+  ];
+}
