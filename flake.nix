@@ -17,14 +17,7 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      darwin,
-      home-manager,
-      emacs-larstvei,
-      ...
-    }@inputs:
+    { darwin, home-manager, ... }@inputs:
     {
       darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
