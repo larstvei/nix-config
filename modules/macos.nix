@@ -21,7 +21,7 @@
     sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish larstvei
   '';
 
-  networking.hostName = "macbookpro";
+  networking.hostName = "larstvei-macbookpro";
 
   system = {
     stateVersion = 4;
