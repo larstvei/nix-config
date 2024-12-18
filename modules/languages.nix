@@ -69,6 +69,7 @@ with pkgs;
   rust = [
     cargo
     rustc
+    rustfmt
     rust-analyzer
   ];
 
