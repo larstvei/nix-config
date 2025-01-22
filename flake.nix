@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+      url = "github:NixOS/nixpkgs/041c867bad68dfe34b78b2813028a2e2ea70a23c";
     };
     darwin = {
       url = "github:LnL7/nix-darwin";

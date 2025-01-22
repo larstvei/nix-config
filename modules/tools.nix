@@ -10,6 +10,10 @@ with pkgs;
     (hunspellWithDicts [ hunspellDicts.nb_NO ])
   ];
 
+  # terminal = [
+  #   ghostty
+  # ];
+
   modernReplacements = [
     bat
     fd
@@ -17,11 +21,11 @@ with pkgs;
   ];
 
   utils = [
-    cloc
     jet
     jq
     pandoc
     parallel
+    tokei
     wget
   ];
 

@@ -74,6 +74,6 @@ with pkgs;
   ];
 
   tex = [
-    texlive.combined.scheme-full
+    texliveFull
   ];
 }
