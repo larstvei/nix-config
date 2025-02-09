@@ -56,10 +56,6 @@
       upgrade = true;
       cleanup = "uninstall";
     };
-    taps = [
-      "homebrew/cask"
-      "homebrew/cask-versions"
-    ];
     casks = [
       "amethyst"
       "arc"
