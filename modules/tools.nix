@@ -38,4 +38,8 @@ with pkgs;
     poppler_utils
   ];
 
+  academic = [
+    zotero
+  ];
+
 }
