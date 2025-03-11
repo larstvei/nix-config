@@ -76,4 +76,9 @@ with pkgs;
   tex = [
     texliveFull
   ];
+
+  zig = [
+    zig
+    zls
+  ];
 }
