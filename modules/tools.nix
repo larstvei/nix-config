@@ -30,7 +30,9 @@ with pkgs;
   ];
 
   multimedia = [
+    dot2tex
     ffmpeg
+    ghostscript
     graphviz
     imagemagick
     inkscape
