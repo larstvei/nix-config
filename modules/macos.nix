@@ -60,7 +60,6 @@
       "amethyst"
       "arc"
       "chatgpt"
-      "docker"
       "dropbox"
       "google-chrome"
       "iina"
