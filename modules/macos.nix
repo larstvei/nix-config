@@ -74,6 +74,7 @@
       "supercollider"
       "utm"
       "zoom"
+      "zen-browser"
     ];
   };
 }

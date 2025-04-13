@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/041c867bad68dfe34b78b2813028a2e2ea70a23c";
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
     darwin = {
       url = "github:LnL7/nix-darwin";
@@ -26,7 +26,7 @@
           ./modules/core.nix
           ./modules/macos.nix
 
-          home-manager.darwinModule
+          home-manager.darwinModules.default
           {
             home-manager = {
               useGlobalPkgs = true;

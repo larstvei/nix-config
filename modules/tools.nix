@@ -44,4 +44,7 @@ with pkgs;
     zotero
   ];
 
+  learning = [
+    exercism
+  ];
 }
