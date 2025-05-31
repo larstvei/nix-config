@@ -24,6 +24,7 @@ with pkgs;
         QuickCheck
       ]
     ))
+    cabal-install
     stack
   ];
 
