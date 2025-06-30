@@ -13,11 +13,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-rosetta-builder = {
+      url = "github:cpick/nix-rosetta-builder";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
 
   outputs =
-    { darwin, home-manager, ... }@inputs:
+    { darwin, home-manager, nix-rosetta-builder, ... }@inputs:
     {
       darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
@@ -25,6 +29,11 @@
         modules = [
           ./modules/core.nix
           ./modules/macos.nix
+
+          nix-rosetta-builder.darwinModules.default
+          {
+            nix-rosetta-builder.onDemand = true;
+          }
 
           home-manager.darwinModules.default
           {
