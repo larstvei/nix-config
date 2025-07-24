@@ -15,6 +15,8 @@
   networking.hostName = "larstvei-macbookpro";
 
   system = {
+    primaryUser = "larstvei";
+
     stateVersion = 4;
 
     keyboard = {
