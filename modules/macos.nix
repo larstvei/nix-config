@@ -62,6 +62,7 @@
       "amethyst"
       "arc"
       "chatgpt"
+      "darktable"
       "dropbox"
       "google-chrome"
       "iina"
