@@ -74,6 +74,10 @@ with pkgs;
     rust-analyzer
   ];
 
+  scheme = [
+    gambit
+  ];
+
   tex = [
     texliveFull
   ];
