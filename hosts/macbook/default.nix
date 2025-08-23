@@ -5,6 +5,8 @@
     ../../system/darwin
   ];
 
+  networking.hostName = "larstvei-macbookpro";
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

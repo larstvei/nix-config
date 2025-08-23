@@ -12,8 +12,6 @@
 
   programs.fish.enable = true;
 
-  networking.hostName = "larstvei-macbookpro";
-
   system = {
     primaryUser = "larstvei";
 
