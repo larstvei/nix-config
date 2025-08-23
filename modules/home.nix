@@ -10,10 +10,10 @@ let
     inherit pkgs;
     inherit emacs-larstvei;
   };
-  langauges = import ./languages.nix { inherit pkgs; };
+  languages = import ./languages.nix { inherit pkgs; };
 in
 {
-  home.packages = concatAttrVals langauges ++ concatAttrVals tools;
+  home.packages = concatAttrVals languages ++ concatAttrVals tools;
 
   home.file.".config/enchant/hunspell/".source = "${pkgs.hunspellDicts.nb_NO}/share/hunspell/";
 
