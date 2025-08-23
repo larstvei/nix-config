@@ -1,26 +1,27 @@
 { pkgs, emacs-larstvei, ... }:
+let
+  v = import ./variables.nix;
+in
 {
   imports = [
     ../../system
     ../../system/darwin
   ];
 
-  system.primaryUser = "larstvei";
+  system.primaryUser = v.username;
 
-  networking.hostName = "larstvei-macbookpro";
+  networking.hostName = v.hostName;
 
-  users.users = {
-    larstvei = {
-      home = "/Users/larstvei";
-      shell = pkgs.fish;
-    };
+  users.users.${v.username} = {
+    home = v.userHome;
+    shell = pkgs.fish;
   };
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit emacs-larstvei; };
-    users.larstvei.imports = [ ../../home ];
+    users.${v.username}.imports = [ ../../home ];
   };
 
   homebrew = {
