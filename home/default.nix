@@ -6,11 +6,11 @@
 }:
 let
   concatAttrVals = attrSet: lib.concatMap (x: x) (lib.attrValues attrSet);
-  tools = import ./tools.nix {
+  tools = import ../modules/tools.nix {
     inherit pkgs;
     inherit emacs-larstvei;
   };
-  languages = import ./languages.nix { inherit pkgs; };
+  languages = import ../modules/languages.nix { inherit pkgs; };
 in
 {
   home.packages = concatAttrVals languages ++ concatAttrVals tools;

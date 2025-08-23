@@ -9,6 +9,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit emacs-larstvei; };
-    users.larstvei.imports = [ ../../modules/home.nix ];
+    users.larstvei.imports = [ ../../home ];
   };
 }
