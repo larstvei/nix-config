@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
 
-  fonts.packages = import ./fonts.nix { inherit pkgs; };
+  fonts.packages = import ../home/fonts { inherit pkgs; };
 
   users.users."larstvei".home = "/Users/larstvei";
 
