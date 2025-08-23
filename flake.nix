@@ -21,10 +21,18 @@
   };
 
   outputs =
-    { darwin, home-manager, nix-rosetta-builder, ... }@inputs:
+    {
+      darwin,
+      home-manager,
+      nix-rosetta-builder,
+      emacs-larstvei,
+      ...
+    }:
     {
       darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+
+        specialArgs = { inherit emacs-larstvei; };
 
         modules = [
           ./modules/core.nix
@@ -40,9 +48,9 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = { inherit emacs-larstvei; };
               users.larstvei = {
                 imports = [
-                  { _module.args = inputs; } # <- one could ask, why?
                   ./modules/home.nix
                 ];
               };
