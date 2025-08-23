@@ -1,16 +1,16 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
 
   fonts.packages = import ../home/fonts { inherit pkgs; };
 
-  users.users."larstvei".home = "/Users/larstvei";
+  users.users = {
+    larstvei = {
+      home = "/Users/larstvei";
+      shell = pkgs.fish;
+    };
+  };
 
   programs.fish.enable = true;
-
-  system.activationScripts.postActivation.text = ''
-    # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
-    sudo chsh -s ${lib.getBin pkgs.fish}/bin/fish larstvei
-  '';
 
   networking.hostName = "larstvei-macbookpro";
 
