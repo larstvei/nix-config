@@ -3,6 +3,8 @@
 
   fonts.packages = import ../../home/fonts { inherit pkgs; };
 
+  nix.linux-builder.enable = true;
+
   users.users = {
     larstvei = {
       home = "/Users/larstvei";

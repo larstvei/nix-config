@@ -3,9 +3,6 @@
   nix = {
     package = pkgs.nix;
 
-
-    linux-builder.enable = true;
-
     settings = {
       experimental-features = [
         "nix-command"
