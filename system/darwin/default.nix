@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
 
-  fonts.packages = import ../home/fonts { inherit pkgs; };
+  fonts.packages = import ../../home/fonts { inherit pkgs; };
 
   users.users = {
     larstvei = {

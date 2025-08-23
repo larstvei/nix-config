@@ -1,8 +1,8 @@
 { emacs-larstvei, ... }:
 {
   imports = [
-    ../../modules/core.nix
-    ../../modules/macos.nix
+    ../../system
+    ../../system/darwin
   ];
 
   home-manager = {
