@@ -70,6 +70,7 @@
       "obs"
       "ollama"
       "processing"
+      "racket"
       "raycast"
       "remarkable"
       "signal"
