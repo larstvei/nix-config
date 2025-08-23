@@ -29,34 +29,19 @@
       ...
     }:
     {
-      darwinConfigurations."larstvei-macbookpro" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+      darwinConfigurations = {
+        larstvei-macbookpro = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
 
-        specialArgs = { inherit emacs-larstvei; };
+          specialArgs = { inherit emacs-larstvei; };
 
-        modules = [
-          ./modules/core.nix
-          ./modules/macos.nix
-
-          nix-rosetta-builder.darwinModules.default
-          {
-            nix-rosetta-builder.onDemand = true;
-          }
-
-          home-manager.darwinModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit emacs-larstvei; };
-              users.larstvei = {
-                imports = [
-                  ./modules/home.nix
-                ];
-              };
-            };
-          }
-        ];
+          modules = [
+            home-manager.darwinModules.default
+            ./hosts/macbook
+            nix-rosetta-builder.darwinModules.default
+            { nix-rosetta-builder.onDemand = true; }
+          ];
+        };
       };
     };
 }
