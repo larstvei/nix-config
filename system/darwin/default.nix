@@ -5,19 +5,10 @@
 
   nix.linux-builder.enable = true;
 
-  users.users = {
-    larstvei = {
-      home = "/Users/larstvei";
-      shell = pkgs.fish;
-    };
-  };
-
   programs.fish.enable = true;
   environment.shells = [ pkgs.fish ];
 
   system = {
-    primaryUser = "larstvei";
-
     stateVersion = 4;
 
     keyboard = {

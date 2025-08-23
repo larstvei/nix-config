@@ -1,11 +1,20 @@
-{ emacs-larstvei, ... }:
+{ pkgs, emacs-larstvei, ... }:
 {
   imports = [
     ../../system
     ../../system/darwin
   ];
 
+  system.primaryUser = "larstvei";
+
   networking.hostName = "larstvei-macbookpro";
+
+  users.users = {
+    larstvei = {
+      home = "/Users/larstvei";
+      shell = pkgs.fish;
+    };
+  };
 
   home-manager = {
     useGlobalPkgs = true;
