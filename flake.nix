@@ -23,6 +23,7 @@
   outputs =
     {
       darwin,
+      nixpkgs,
       home-manager,
       nix-rosetta-builder,
       emacs-larstvei,
@@ -42,6 +43,15 @@
             { nix-rosetta-builder.onDemand = true; }
           ];
         };
+      };
+
+      nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit emacs-larstvei; };
+        modules = [
+          home-manager.nixosModules.default
+          ./hosts/thinkpad/configuration.nix
+        ];
       };
     };
 }
