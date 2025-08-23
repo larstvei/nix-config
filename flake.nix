@@ -37,7 +37,7 @@
 
           modules = [
             home-manager.darwinModules.default
-            ./hosts/macbook
+            ./hosts/macbook/configuration.nix
             nix-rosetta-builder.darwinModules.default
             { nix-rosetta-builder.onDemand = true; }
           ];
