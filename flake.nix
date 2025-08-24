@@ -17,6 +17,10 @@
       url = "github:cpick/nix-rosetta-builder";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
 
@@ -27,6 +31,7 @@
       home-manager,
       nix-rosetta-builder,
       emacs-larstvei,
+      zen-browser,
       ...
     }:
     {
@@ -47,7 +52,10 @@
 
       nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit emacs-larstvei; };
+        specialArgs = {
+          inherit emacs-larstvei;
+          inherit zen-browser;
+        };
         modules = [
           home-manager.nixosModules.default
           ./hosts/thinkpad/configuration.nix

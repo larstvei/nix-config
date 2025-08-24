@@ -2,6 +2,7 @@
   config,
   pkgs,
   emacs-larstvei,
+  zen-browser,
   ...
 }:
 let
@@ -17,8 +18,14 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit emacs-larstvei; };
-    users.${v.username}.imports = [ ../../home ];
+    extraSpecialArgs = {
+      inherit emacs-larstvei;
+      inherit zen-browser;
+    };
+    users.${v.username}.imports = [
+      ../../home
+      ../../home/desktop
+    ];
   };
 
   users.users.${v.username} = {
