@@ -21,16 +21,15 @@ in
     users.${v.username}.imports = [ ../../home ];
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${v.username} = {
     isNormalUser = true;
     description = "Lars Tveito";
     home = v.userHome;
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [ ]; # keep empty; HM will provide user packages
   };
 
   networking.hostName = v.hostName;
