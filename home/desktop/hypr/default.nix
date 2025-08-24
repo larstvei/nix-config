@@ -19,8 +19,10 @@
 
       input = {
         kb_options = "altwin:swap_alt_win";
-        natural_scroll = true;
-        scroll_factor = 0.4;
+
+        repeat_delay = 225;
+        repeat_rate = 50;
+
         touchpad = {
           natural_scroll = true;
           scroll_factor = 0.4;
