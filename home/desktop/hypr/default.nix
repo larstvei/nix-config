@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = [
+    pkgs.wtype
     pkgs.rofi-wayland
     pkgs.brightnessctl
   ];
@@ -34,11 +35,14 @@
       "$shiftMod" = "SUPER_SHIFT";
 
       bind = [
+        # Open and close applications
         "$mod, RETURN, exec, kitty"
         "$mod, E, exec, emacsclient -c"
-        "$mod, Q, killactive"
+        "$mod, B, exec, zen"
         "$mod, SPACE, exec, rofi -show drun"
+        "$mod, Q, killactive"
 
+        # Window management
         "$mod, F, fullscreen"
 
         "$mod, H, movefocus, l"
@@ -50,6 +54,14 @@
         "$shiftMod, J, movewindow, d"
         "$shiftMod, K, movewindow, u"
         "$shiftMod, L, movewindow, r"
+
+        # Norwegian characters
+        "$mod, A, exec, wtype 'å'"
+        "$mod, O, exec, wtype 'ø'"
+        "$mod, semicolon, exec, wtype 'æ'"
+        "$shiftMod, A, exec, wtype 'Å'"
+        "$shiftMod, O, exec, wtype 'Ø'"
+        "$shiftMod, semicolon, exec, wtype 'Æ'"
 
         ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
