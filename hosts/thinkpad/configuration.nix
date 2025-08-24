@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   emacs-larstvei,
   zen-browser,
@@ -12,6 +11,7 @@ in
   imports = [
     ../../system
     ../../system/nixos
+    ./keyboard.nix
     ./hardware-configuration.nix
   ];
 

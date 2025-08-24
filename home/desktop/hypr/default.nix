@@ -18,6 +18,7 @@
       gestures.workspace_swipe = true;
 
       input = {
+        kb_options = "altwin:swap_alt_win";
         natural_scroll = true;
         scroll_factor = 0.4;
         touchpad = {
