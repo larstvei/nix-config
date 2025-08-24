@@ -20,7 +20,7 @@
       input = {
         kb_options = "altwin:swap_alt_win";
 
-        repeat_delay = 225;
+        repeat_delay = 300;
         repeat_rate = 50;
 
         touchpad = {
