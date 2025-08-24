@@ -9,4 +9,11 @@
 
   programs._1password.enable = true;
   programs._1password-gui.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  };
 }
