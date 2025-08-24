@@ -8,27 +8,50 @@
         ];
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
-          (defsrc
-           caps a s d f j k l ;
-          )
           (defvar
-           tap-time 150
-           hold-time 200
+            tap-time 150
+            hold-time 200
           )
+
+          (defsrc
+                     e r
+            caps a s d f g h j k l ;
+                     c v
+          )
+
           (defalias
-           caps (tap-hold 100 100 esc lctl)
-           a (tap-hold $tap-time $hold-time a lsft)
-           s (tap-hold $tap-time $hold-time s lalt)
-           d (tap-hold $tap-time $hold-time d lmet)
-           f (tap-hold $tap-time $hold-time f lctl)
-           j (tap-hold $tap-time $hold-time j rctl)
-           k (tap-hold $tap-time $hold-time k rmet)
-           l (tap-hold $tap-time $hold-time l ralt)
-           ; (tap-hold $tap-time $hold-time ; rsft)
+            ;; home-row mods
+            caps (tap-hold $tap-time $hold-time bspc lctl)
+            a    (tap-hold $tap-time $hold-time a lsft)
+            s    (tap-hold $tap-time $hold-time s lalt)
+            d    (tap-hold $tap-time $hold-time d lmet)
+            f    (tap-hold $tap-time $hold-time f lctl)
+            j    (tap-hold $tap-time $hold-time j rctl)
+            k    (tap-hold $tap-time $hold-time k rmet)
+            l    (tap-hold $tap-time $hold-time l ralt)
+            ;    (tap-hold $tap-time $hold-time ; rsft)
+
+            ;; layer-taps
+            g    (tap-hold $tap-time $hold-time g (layer-while-held navigation))
+            h    (tap-hold $tap-time $hold-time h (layer-while-held symbol))
           )
 
           (deflayer base
-           @caps @a  @s  @d  @f  @j  @k  @l  @;
+                        e  r
+            @caps @a @s @d @f @g @h @j @k @l @;
+                          c  v
+          )
+
+          (deflayer navigation
+                        e  r
+            @caps @a @s @d @f @g left down up right @;
+                          c  v
+          )
+
+          (deflayer symbol
+                          S-[  S-]
+            @caps @a  S-4  S-9 S-0  @g @h @j @k @l @;
+                            [    ]
           )
         '';
       };
