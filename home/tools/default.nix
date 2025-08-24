@@ -18,7 +18,9 @@ with pkgs;
   ];
 
   spelling = [
-    (hunspellWithDicts [ hunspellDicts.nb_NO ])
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.nb_NO
   ];
 
   # terminal = [
