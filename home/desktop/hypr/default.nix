@@ -37,7 +37,7 @@
       bind = [
         # Open and close applications
         "$mod, RETURN, exec, kitty"
-        "$mod, E, exec, emacsclient -c"
+        "$mod, E, exec, emacs"
         "$mod, B, exec, zen"
         "$mod, SPACE, exec, rofi -show drun"
         "$mod, Q, killactive"
