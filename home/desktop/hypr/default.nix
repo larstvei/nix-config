@@ -4,6 +4,7 @@
     pkgs.wtype
     pkgs.rofi-wayland
     pkgs.brightnessctl
+    pkgs.pamixer
   ];
 
   programs.kitty.enable = true;
@@ -63,6 +64,10 @@
         "$shiftMod, O, exec, wtype 'Ø'"
         "$shiftMod, semicolon, exec, wtype 'Æ'"
 
+        ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
+        ", XF86AudioLowerVolume, exec, pamixer -d 5 "
+        ", XF86AudioMute, exec, pamixer -t"
+        ", XF86AudioMicMute, exec, pamixer --default-source -t"
         ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       ]
