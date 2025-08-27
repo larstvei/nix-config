@@ -13,9 +13,7 @@
     enable = true;
     settings = {
 
-      monitor = [ ",preferred,auto,1.2" ];
-
-      xwayland.force_zero_scaling = true;
+      monitor = [ ",preferred,auto,1" ];
 
       gestures.workspace_swipe = true;
 
