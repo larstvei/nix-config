@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = [
-    pkgs.wtype
-    pkgs.rofi-wayland
+    pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.pamixer
+    pkgs.rofi-wayland
+    pkgs.wtype
   ];
 
   programs.kitty.enable = true;
@@ -16,6 +17,15 @@
       monitor = [ ",preferred,auto,1" ];
 
       gestures.workspace_swipe = true;
+
+      cursor = {
+        enable_hyprcursor = false;
+      };
+
+      env = [
+        "XCURSOR_THEME,Adwaita"
+        "XCURSOR_SIZE,24"
+      ];
 
       input = {
         kb_options = "altwin:swap_alt_win";
