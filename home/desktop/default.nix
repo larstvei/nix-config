@@ -2,7 +2,7 @@
 {
   imports = [
     zen-browser.homeModules.beta
-    ./hypr
+    ./hyprland
   ];
 
   programs.zen-browser = {
