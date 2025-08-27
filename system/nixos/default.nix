@@ -1,6 +1,17 @@
 { pkgs, ... }:
 {
-  fonts.packages = import ../../home/fonts { inherit pkgs; };
+
+  fonts = {
+    packages = import ../../home/fonts { inherit pkgs; };
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [ "Source Serif 4" ];
+        sansSerif = [ "Source Sans 3" ];
+        monospace = [ "Source Code Pro" ];
+      };
+    };
+  };
 
   programs.fish.enable = true;
   environment.shells = [ pkgs.fish ];
