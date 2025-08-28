@@ -2,7 +2,7 @@
 with pkgs;
 [
   iosevka
+  nerd-fonts.sauce-code-pro
   source-sans
-  source-code-pro
   source-serif
 ]

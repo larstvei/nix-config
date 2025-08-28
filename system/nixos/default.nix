@@ -8,7 +8,7 @@
       defaultFonts = {
         serif = [ "Source Serif 4" ];
         sansSerif = [ "Source Sans 3" ];
-        monospace = [ "Source Code Pro" ];
+        monospace = [ "SauceCodePro Nerd Font" ];
       };
     };
   };
