@@ -1,13 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home.packages = [
-    pkgs.adwaita-icon-theme
-    pkgs.brightnessctl
-    pkgs.pamixer
-    pkgs.rofi-wayland
-    pkgs.wtype
-  ];
-
   programs.kitty.enable = true;
 
   wayland.windowManager.hyprland = {

@@ -1,5 +1,14 @@
-{ zen-browser, ... }:
+{ pkgs, zen-browser, ... }:
 {
+
+  home.packages = [
+    pkgs.adwaita-icon-theme
+    pkgs.brightnessctl
+    pkgs.pamixer
+    pkgs.rofi-wayland
+    pkgs.wtype
+  ];
+
   imports = [
     zen-browser.homeModules.beta
     ./hyprland
