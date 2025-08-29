@@ -4,7 +4,27 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+
     settings = {
+
+      misc = {
+        disable_hyprland_logo = true;
+        background_color = "0x2E3440";
+      };
+
+      general = {
+        border_size = 2;
+        "col.active_border" = "0xFF81A1C1";
+        "col.inactive_border" = "0xFF677691";
+      };
+
+      decoration = {
+        rounding = 15;
+        inactive_opacity = 0.75;
+        blur.enabled = false;
+        shadow.enabled = false;
+        border_part_of_window = true;
+      };
 
       monitor = [ ",preferred,auto,1" ];
 
