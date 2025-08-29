@@ -1,4 +1,12 @@
+{ pkgs, ... }:
 {
+
+  # Disable internal keyboard when external (Voyager) is connected
+  services.udev.extraRules = ''
+    ACTION=="add",    SUBSYSTEM=="input", KERNEL=="event*", ENV{DEVLINKS}=="*usb-ZSA_Technology_Labs_Voyager-event-kbd*", RUN+="${pkgs.kmod}/bin/modprobe -r atkbd"
+    ACTION=="remove", SUBSYSTEM=="input", KERNEL=="event*", ENV{DEVLINKS}=="*usb-ZSA_Technology_Labs_Voyager-event-kbd*", RUN+="${pkgs.kmod}/bin/modprobe atkbd"
+  '';
+
   services.kanata = {
     enable = true;
     keyboards = {
