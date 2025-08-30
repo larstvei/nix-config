@@ -1,4 +1,3 @@
-{ ... }:
 {
   programs.kitty.enable = true;
 
@@ -16,6 +15,7 @@
         border_size = 2;
         "col.active_border" = "0xFF81A1C1";
         "col.inactive_border" = "0xFF677691";
+        layout = "master";
       };
 
       decoration = {
