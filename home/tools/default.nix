@@ -34,6 +34,7 @@ with pkgs;
   ];
 
   utils = [
+    gnumake
     jet
     jq
     pandoc
