@@ -8,7 +8,7 @@
 
       misc = {
         disable_hyprland_logo = true;
-        background_color = "0x2E3440";
+        background_color = "0x1A1D23";
       };
 
       general = {
