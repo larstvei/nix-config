@@ -87,27 +87,33 @@
       "$shiftMod" = "SUPER_SHIFT";
 
       bind = [
-        # Open and close applications
-        "$mod, RETURN, exec, kitty"
+        # Master layout
+        "$mod, F, fullscreen"
+        "$mod, Return, layoutmsg, swapwithmaster master"
+        "$mod, minus, layoutmsg, mfact -0.01"
+        "$mod, equal, layoutmsg, mfact +0.01"
+        "$mod, Tab, layoutmsg, cyclenext"
+        "$shiftMod, Tab, layoutmsg, cycleprev"
+        "$mod, comma, layoutmsg, addmaster"
+        "$mod, period, layoutmsg, removemaster"
+
+        # App launchers / session
+        "$mod, T, exec, kitty"
         "$mod, E, exec, emacs"
         "$mod, B, exec, zen"
-        "$mod, SPACE, exec, rofi -show drun"
         "$mod, Q, killactive"
 
-        # Window management
-        "$mod, F, fullscreen"
-
+        # Window focus & movement
         "$mod, H, movefocus, l"
         "$mod, J, movefocus, d"
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
-
         "$shiftMod, H, movewindow, l"
         "$shiftMod, J, movewindow, d"
         "$shiftMod, K, movewindow, u"
         "$shiftMod, L, movewindow, r"
 
-        # Norwegian characters
+        # Text input (Norwegian characters
         "$mod, A, exec, wtype 'å'"
         "$mod, O, exec, wtype 'ø'"
         "$mod, semicolon, exec, wtype 'æ'"
@@ -115,6 +121,7 @@
         "$shiftMod, O, exec, wtype 'Ø'"
         "$shiftMod, semicolon, exec, wtype 'Æ'"
 
+        # Media & brightness
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
         ", XF86AudioLowerVolume, exec, pamixer -d 5 "
         ", XF86AudioMute, exec, pamixer -t"

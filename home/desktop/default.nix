@@ -5,7 +5,6 @@
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.pamixer
-    pkgs.rofi-wayland
     pkgs.wtype
   ];
 
