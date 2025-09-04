@@ -116,6 +116,9 @@
         "$shiftMod, K, movewindow, u"
         "$shiftMod, L, movewindow, r"
 
+        "$mod, =, resizeactive, +10"
+        "$mod, -, resizeactive, -10"
+
         # Text input (Norwegian characters
         "$mod, A, exec, wtype 'å'"
         "$mod, O, exec, wtype 'ø'"
