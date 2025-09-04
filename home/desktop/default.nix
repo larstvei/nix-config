@@ -4,6 +4,7 @@
   home.packages = [
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
+    pkgs.grimblast
     pkgs.pamixer
     pkgs.wtype
   ];

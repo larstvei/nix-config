@@ -103,6 +103,9 @@
         "$mod, B, exec, zen"
         "$mod, Q, killactive"
 
+        "$mod, S, exec, grimblast copysave area /tmp/screenshot-$(date +%F--%T).png"
+        "$shiftMod, S, exec, grimblast copysave screen /tmp/screenshot-$(date +%F--%T).png"
+
         # Window focus & movement
         "$mod, H, movefocus, l"
         "$mod, J, movefocus, d"
