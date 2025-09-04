@@ -119,7 +119,7 @@
         "$mod, =, resizeactive, +10"
         "$mod, -, resizeactive, -10"
 
-        # Text input (Norwegian characters
+        # Text input (macOS-like way of producing Norwegian characters)
         "$mod, A, exec, wtype 'å'"
         "$mod, O, exec, wtype 'ø'"
         "$mod, semicolon, exec, wtype 'æ'"
