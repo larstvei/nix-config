@@ -8,13 +8,10 @@
 
       misc = {
         disable_hyprland_logo = true;
-        background_color = "0x1A1D23";
       };
 
       general = {
         border_size = 2;
-        "col.active_border" = "0xFF81A1C1";
-        "col.inactive_border" = "0xFF677691";
         layout = "master";
       };
 
@@ -118,6 +115,8 @@
 
         "$mod, =, resizeactive, +10"
         "$mod, -, resizeactive, -10"
+
+        "$mod, D, exec, darkman toggle"
 
         # Text input (macOS-like way of producing Norwegian characters)
         "$mod, A, exec, wtype 'å'"
