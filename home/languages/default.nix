@@ -5,6 +5,8 @@ with pkgs;
     cbqn
   ];
 
+  c = [ gcc ];
+
   clojure = [
     babashka
     clj-kondo
