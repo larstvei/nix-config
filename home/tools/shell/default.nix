@@ -35,7 +35,7 @@
         custom = {
           direnv = {
             format = "[\\[direnv\\]]($style) ";
-            when = "env | grep -E '^DIRENV_FILE='";
+            when = "test -n \"$DIRENV_FILE\"";
           };
         };
         character = {
