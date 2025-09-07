@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
 
+  imports = [
+    ../../home/fonts
+  ];
+
   fonts = {
-    packages = import ../../home/fonts { inherit pkgs; };
     fontconfig = {
       enable = true;
       defaultFonts = {

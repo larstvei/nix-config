@@ -1,7 +1,9 @@
 { pkgs, ... }:
 {
 
-  fonts.packages = import ../../home/fonts { inherit pkgs; };
+  imports = [
+    ../../home/fonts
+  ];
 
   nix.linux-builder.enable = true;
 
