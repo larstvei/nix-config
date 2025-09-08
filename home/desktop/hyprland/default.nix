@@ -121,10 +121,10 @@
         # Text input (macOS-like way of producing Norwegian characters)
         "$mod, A, exec, wtype 'å'"
         "$mod, O, exec, wtype 'ø'"
-        "$mod, semicolon, exec, wtype 'æ'"
+        "$mod, apostrophe, exec, wtype 'æ'"
         "$shiftMod, A, exec, wtype 'Å'"
         "$shiftMod, O, exec, wtype 'Ø'"
-        "$shiftMod, semicolon, exec, wtype 'Æ'"
+        "$shiftMod, apostrophe, exec, wtype 'Æ'"
 
         # Media & brightness
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
