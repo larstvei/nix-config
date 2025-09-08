@@ -25,6 +25,7 @@
                      e r
             caps a s d f g h j k l ;
                      c v
+                       spc
           )
 
           (defalias
@@ -38,6 +39,7 @@
             k    (tap-hold $tap-time $hold-time k rmet)
             l    (tap-hold $tap-time $hold-time l ralt)
             ;    (tap-hold $tap-time $hold-time ; rsft)
+            spc  (tap-hold $tap-time $hold-time spc lsft)
 
             ;; layer-taps
             g    (tap-hold $tap-time $hold-time g (layer-while-held navigation))
@@ -48,18 +50,21 @@
                         e  r
             @caps @a @s @d @f @g @h @j @k @l @;
                           c  v
+                              @spc
           )
 
           (deflayer navigation
                         e  r
             @caps @a @s @d @f @g left down up right @;
                           c  v
+                             @spc
           )
 
           (deflayer symbol
                           S-[  S-]
             @caps @a  S-4  S-9 S-0  @g @h @j @k @l @;
                             [    ]
+                                 @spc
           )
         '';
       };
