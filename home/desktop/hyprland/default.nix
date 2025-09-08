@@ -1,3 +1,4 @@
+{ pkgs, nanostatus, ... }:
 {
   programs.kitty.enable = true;
 
@@ -117,6 +118,8 @@
         "$mod, -, resizeactive, -10"
 
         "$mod, D, exec, darkman toggle"
+
+        "$mod, space, exec, ${nanostatus.packages.${pkgs.system}.default}/bin/nanostatus-toggle"
 
         # Text input (macOS-like way of producing Norwegian characters)
         "$mod, A, exec, wtype 'å'"

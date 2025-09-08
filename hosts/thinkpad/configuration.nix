@@ -1,5 +1,6 @@
 {
   pkgs,
+  nanostatus,
   emacs-larstvei,
   zen-browser,
   ...
@@ -19,6 +20,7 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
+      inherit nanostatus;
       inherit emacs-larstvei;
       inherit zen-browser;
     };

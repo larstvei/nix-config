@@ -21,6 +21,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nanostatus.url = "github:larstvei/nanostatus";
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
 
@@ -30,6 +31,7 @@
       nixpkgs,
       home-manager,
       nix-rosetta-builder,
+      nanostatus,
       emacs-larstvei,
       zen-browser,
       ...
@@ -53,6 +55,7 @@
       nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
+          inherit nanostatus;
           inherit emacs-larstvei;
           inherit zen-browser;
         };

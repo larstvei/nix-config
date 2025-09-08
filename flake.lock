@@ -1,5 +1,49 @@
 {
   "nodes": {
+    "ags": {
+      "inputs": {
+        "astal": "astal",
+        "nixpkgs": [
+          "nanostatus",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756487002,
+        "narHash": "sha256-hN9RfNXy53qAkT68T+IYZpl68uE1uPOVMkw0MqC43KA=",
+        "owner": "aylur",
+        "repo": "ags",
+        "rev": "8ff792dba6cc82eed10e760f551075564dd0a407",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
+    "astal": {
+      "inputs": {
+        "nixpkgs": [
+          "nanostatus",
+          "ags",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1752404970,
+        "narHash": "sha256-XULTToDUkIshNXEO+YP2mAHdQv8bxWDvKjbamBfOC8E=",
+        "owner": "aylur",
+        "repo": "astal",
+        "rev": "2c5eb54f39e1710c6e2c80915a240978beb3269a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aylur",
+        "repo": "astal",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -152,6 +196,25 @@
         "type": "github"
       }
     },
+    "nanostatus": {
+      "inputs": {
+        "ags": "ags",
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1757371422,
+        "narHash": "sha256-4EEIRJE52cACFG2ik/+pU5vh8CKShwKLSSTaivGouGM=",
+        "owner": "larstvei",
+        "repo": "nanostatus",
+        "rev": "af0dc80af18569becbf40c77ac7380c2efc6bef6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "larstvei",
+        "repo": "nanostatus",
+        "type": "github"
+      }
+    },
     "nix-rosetta-builder": {
       "inputs": {
         "nixos-generators": "nixos-generators",
@@ -260,6 +323,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1756542300,
+        "narHash": "sha256-tlOn88coG5fzdyqz6R93SQL5Gpq+m/DsWpekNFhqPQk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d7600c775f877cd87b4f5a831c28aa94137377aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1755829505,
         "narHash": "sha256-4/Jd+LkQ2ssw8luQVkqVs9spDBVE6h/u/hC/tzngsPo=",
         "owner": "NixOS",
@@ -279,8 +358,9 @@
         "darwin": "darwin",
         "emacs-larstvei": "emacs-larstvei",
         "home-manager": "home-manager",
+        "nanostatus": "nanostatus",
         "nix-rosetta-builder": "nix-rosetta-builder",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "zen-browser": "zen-browser"
       }
     },
