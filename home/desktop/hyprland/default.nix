@@ -61,6 +61,7 @@
 
       cursor = {
         enable_hyprcursor = false;
+        inactive_timeout = 2;
       };
 
       env = [
