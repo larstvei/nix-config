@@ -202,11 +202,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1757371422,
-        "narHash": "sha256-4EEIRJE52cACFG2ik/+pU5vh8CKShwKLSSTaivGouGM=",
+        "lastModified": 1757604536,
+        "narHash": "sha256-q0zKPGRi5oW59IpYkxmjyRRLtqwsDaDFbb+oOcFpg2s=",
         "owner": "larstvei",
         "repo": "nanostatus",
-        "rev": "af0dc80af18569becbf40c77ac7380c2efc6bef6",
+        "rev": "9338759e13edeca8d8dc14a3b3b8485d5c2fa22e",
         "type": "github"
       },
       "original": {
