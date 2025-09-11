@@ -2,7 +2,7 @@
 {
 
   imports = [
-    ../../home/fonts
+    ../fonts
   ];
 
   nix.linux-builder.enable = true;

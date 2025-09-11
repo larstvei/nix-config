@@ -1,19 +1,16 @@
 { pkgs, emacs-larstvei, ... }:
-let
-  v = import ./variables.nix;
-in
 {
   imports = [
-    ../../system
-    ../../system/darwin
+    ../../modules/base
+    ../../modules/darwin
   ];
 
-  system.primaryUser = v.username;
+  system.primaryUser = "larstvei";
 
-  networking.hostName = v.hostName;
+  networking.hostName = "larstvei-macbookpro";
 
-  users.users.${v.username} = {
-    home = v.userHome;
+  users.users.larstvei = {
+    home = "/Users/larstvei";
     shell = pkgs.fish;
   };
 
@@ -21,7 +18,7 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit emacs-larstvei; };
-    users.${v.username}.imports = [ ../../home ];
+    users.larstvei.imports = [ ../../modules/home ];
   };
 
   homebrew = {

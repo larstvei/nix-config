@@ -5,15 +5,12 @@
   zen-browser,
   ...
 }:
-let
-  v = import ./variables.nix;
-in
 {
   imports = [
-    ../../system
-    ../../system/nixos
-    ./keyboard.nix
-    ./hardware-configuration.nix
+    ./keyboard
+    ./hardware
+    ../../modules/base
+    ../../modules/nixos
   ];
 
   home-manager = {
@@ -24,9 +21,9 @@ in
       inherit emacs-larstvei;
       inherit zen-browser;
     };
-    users.${v.username}.imports = [
-      ../../home
-      ../../home/desktop
+    users.larstvei.imports = [
+      ../../modules/home
+      ../../modules/desktop
     ];
   };
 
@@ -35,15 +32,15 @@ in
     settings = {
       default_session = {
         command = "hyprland";
-        user = v.username;
+        user = "larstvei";
       };
     };
   };
 
-  users.users.${v.username} = {
+  users.users.larstvei = {
     isNormalUser = true;
     description = "Lars Tveito";
-    home = v.userHome;
+    home = "/home/larstvei";
     shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
@@ -51,7 +48,7 @@ in
     ];
   };
 
-  networking.hostName = v.hostName;
+  networking.hostName = "larstvei-think";
 
   console.keyMap = "us";
 

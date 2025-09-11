@@ -1,7 +1,7 @@
 {
   imports = [
-    ./languages
-    ./tools
+    ../languages
+    ../tools
   ];
 
   programs.home-manager.enable = true;

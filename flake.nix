@@ -45,7 +45,7 @@
 
           modules = [
             home-manager.darwinModules.default
-            ./machines/macbook/configuration.nix
+            ./machines/macbook
             nix-rosetta-builder.darwinModules.default
             { nix-rosetta-builder.onDemand = true; }
           ];
@@ -61,7 +61,7 @@
         };
         modules = [
           home-manager.nixosModules.default
-          ./machines/thinkpad/configuration.nix
+          ./machines/thinkpad
         ];
       };
     };
