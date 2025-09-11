@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  programs.fish.enable = true;
+  environment.shells = [ pkgs.fish ];
+
+  time.timeZone = "Europe/Oslo";
+  i18n.defaultLocale = "en_US.UTF-8";
+
   nix = {
     package = pkgs.nix;
 

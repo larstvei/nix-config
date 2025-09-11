@@ -18,15 +18,6 @@ let
   };
 in
 {
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.hyprland."org.freedesktop.impl.portal.Settings" = "darkman";
-  };
-
   services.darkman = {
     enable = true;
     settings.portal = true;

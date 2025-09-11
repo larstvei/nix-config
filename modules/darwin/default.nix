@@ -1,15 +1,10 @@
-{ pkgs, ... }:
 {
-
   imports = [
     ../fonts
     ../homebrew
   ];
 
   nix.linux-builder.enable = true;
-
-  programs.fish.enable = true;
-  environment.shells = [ pkgs.fish ];
 
   system = {
     stateVersion = 4;

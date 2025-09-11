@@ -16,26 +16,14 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {
-      inherit nanostatus;
-      inherit emacs-larstvei;
-      inherit zen-browser;
-    };
+    extraSpecialArgs = { inherit nanostatus emacs-larstvei zen-browser; };
     users.larstvei.imports = [
       ../../modules/home
       ../../modules/desktop
     ];
   };
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "hyprland";
-        user = "larstvei";
-      };
-    };
-  };
+  networking.hostName = "larstvei-think";
 
   users.users.larstvei = {
     isNormalUser = true;
@@ -48,38 +36,19 @@
     ];
   };
 
-  networking.hostName = "larstvei-think";
-
   console.keyMap = "us";
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "hyprland";
+      user = "larstvei";
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Oslo";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable bluetooth.
-  hardware.bluetooth.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
