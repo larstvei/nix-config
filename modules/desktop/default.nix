@@ -6,6 +6,7 @@
     pkgs.brightnessctl
     pkgs.grimblast
     pkgs.pamixer
+    pkgs.wl-clipboard
     pkgs.wtype
   ];
 
