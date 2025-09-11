@@ -3,6 +3,7 @@
 
   imports = [
     ../fonts
+    ../homebrew
   ];
 
   nix.linux-builder.enable = true;
