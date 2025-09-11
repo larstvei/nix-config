@@ -54,11 +54,7 @@
 
       nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit nanostatus;
-          inherit emacs-larstvei;
-          inherit zen-browser;
-        };
+        specialArgs = { inherit emacs-larstvei nanostatus zen-browser; };
         modules = [
           home-manager.nixosModules.default
           ./machines/thinkpad
