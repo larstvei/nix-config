@@ -37,6 +37,8 @@
     config.hyprland."org.freedesktop.impl.portal.Settings" = "darkman";
   };
 
+  i18n.defaultLocale = "en_US.UTF-8";
+
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   services.printing.enable = true;
