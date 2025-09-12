@@ -6,6 +6,8 @@
     ../../modules/nixos
   ];
 
+  networking.hostName = "larstvei-think";
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

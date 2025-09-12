@@ -21,8 +21,6 @@
     ];
   };
 
-  networking.hostName = "larstvei-think";
-
   users.users.larstvei = {
     isNormalUser = true;
     description = "Lars Tveito";
