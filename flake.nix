@@ -13,6 +13,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-rosetta-builder = {
       url = "github:cpick/nix-rosetta-builder";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +34,7 @@
       darwin,
       nixpkgs,
       home-manager,
+      nixos-generators,
       nix-rosetta-builder,
       nanostatus,
       emacs-larstvei,
@@ -60,5 +65,26 @@
           ./machines/thinkpad
         ];
       };
+
+      packages.x86_64-linux.vm = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        format = "qcow-efi";
+        specialArgs = { inherit emacs-larstvei nanostatus zen-browser; };
+        modules = [
+          home-manager.nixosModules.default
+          ./machines/vm
+        ];
+      };
+
+      packages.aarch64-linux.vm = nixos-generators.nixosGenerate {
+        system = "aarch64-linux";
+        format = "qcow-efi";
+        specialArgs = { inherit emacs-larstvei nanostatus zen-browser; };
+        modules = [
+          home-manager.nixosModules.default
+          ./machines/vm
+        ];
+      };
+
     };
 }
