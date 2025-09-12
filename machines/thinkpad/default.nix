@@ -1,50 +1,10 @@
 {
-  pkgs,
-  nanostatus,
-  emacs-larstvei,
-  zen-browser,
-  ...
-}:
-{
   imports = [
     ./keyboard
     ./hardware
     ../../modules/base
     ../../modules/nixos
   ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = { inherit nanostatus emacs-larstvei zen-browser; };
-    users.larstvei.imports = [
-      ../../modules/home
-      ../../modules/desktop
-    ];
-  };
-
-  networking.hostName = "larstvei-think";
-
-  users.users.larstvei = {
-    isNormalUser = true;
-    description = "Lars Tveito";
-    home = "/home/larstvei";
-    shell = pkgs.fish;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
-
-  console.keyMap = "us";
-
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "hyprland";
-      user = "larstvei";
-    };
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

@@ -1,9 +1,48 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  nanostatus,
+  emacs-larstvei,
+  zen-browser,
+  ...
+}:
 {
 
   imports = [
     ../fonts
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit nanostatus emacs-larstvei zen-browser; };
+    users.larstvei.imports = [
+      ../home
+      ../desktop
+    ];
+  };
+
+  networking.hostName = "larstvei-think";
+
+  users.users.larstvei = {
+    isNormalUser = true;
+    description = "Lars Tveito";
+    home = "/home/larstvei";
+    shell = pkgs.fish;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+  };
+
+  console.keyMap = "us";
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "hyprland";
+      user = "larstvei";
+    };
+  };
 
   fonts = {
     fontconfig = {
