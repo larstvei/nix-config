@@ -1,5 +1,12 @@
 { pkgs, zen-browser, ... }:
 {
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "hyprland";
+      user = "larstvei";
+    };
+  };
 
   home.packages = [
     pkgs.adwaita-icon-theme

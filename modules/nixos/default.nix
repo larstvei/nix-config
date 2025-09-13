@@ -30,14 +30,6 @@
 
   console.keyMap = "us";
 
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "hyprland";
-      user = "larstvei";
-    };
-  };
-
   fonts = {
     fontconfig = {
       enable = true;
