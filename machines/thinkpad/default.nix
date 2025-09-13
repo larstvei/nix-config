@@ -11,6 +11,14 @@
     ../../modules/desktop
   ];
 
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "hyprland";
+      user = "larstvei";
+    };
+  };
+
   networking.hostName = "larstvei-think";
 
   # Bootloader.
