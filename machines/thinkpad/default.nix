@@ -6,6 +6,11 @@
     ../../modules/nixos
   ];
 
+  home-manager.users.larstvei.imports = [
+    ../../modules/home/full
+    ../../modules/desktop
+  ];
+
   networking.hostName = "larstvei-think";
 
   # Bootloader.

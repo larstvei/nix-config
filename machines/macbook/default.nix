@@ -18,6 +18,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit emacs-larstvei; };
-    users.larstvei.imports = [ ../../modules/home ];
+    users.larstvei.imports = [ ../../modules/home/full ];
   };
 }

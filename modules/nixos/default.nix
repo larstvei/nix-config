@@ -15,10 +15,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit nanostatus emacs-larstvei zen-browser; };
-    users.larstvei.imports = [
-      ../home
-      ../desktop
-    ];
   };
 
   users.users.larstvei = {
