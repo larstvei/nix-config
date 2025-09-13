@@ -1,0 +1,7 @@
+{
+  imports = [
+    ../.
+    ../../languages
+    ../../tools
+  ];
+}
