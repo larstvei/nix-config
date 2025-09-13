@@ -4,6 +4,11 @@
     ../../modules/nixos
   ];
 
+  home-manager.users.larstvei.imports = [
+    ../../modules/home/minimal
+    ../../modules/desktop
+  ];
+
   networking.hostName = "larstvei-vm";
 
   # VM-friendly bits
