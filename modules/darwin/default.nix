@@ -4,7 +4,20 @@
     ../homebrew
   ];
 
-  nix.linux-builder.enable = true;
+  nix.linux-builder = {
+    enable = true;
+    ephemeral = true;
+    maxJobs = 4;
+    config = {
+      virtualisation = {
+        darwin-builder = {
+          diskSize = 200 * 1024;
+          memorySize = 8 * 1024;
+        };
+        cores = 6;
+      };
+    };
+  };
 
   system = {
     stateVersion = 4;
