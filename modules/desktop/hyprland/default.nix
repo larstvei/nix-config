@@ -7,14 +7,15 @@
 
     settings = {
 
-      misc = {
-        disable_hyprland_logo = true;
-      };
+      misc.disable_hyprland_logo = true;
 
       general = {
         border_size = 2;
         layout = "master";
       };
+
+      # No borders or gaps when there is only one window
+      workspace = "w[t1], gapsin:0, gapsout:0, border:0";
 
       decoration = {
         rounding = 15;
