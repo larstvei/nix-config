@@ -15,7 +15,6 @@
         if test "$TERM" != "dumb"
             track_directories
         end
-        set -gx DIRENV_LOG_FORMAT ""
       '';
     };
 
@@ -27,6 +26,10 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      config.global = {
+        log_format = "⊙ %s";
+        hide_env_diff = true;
+      };
     };
 
     starship = {
