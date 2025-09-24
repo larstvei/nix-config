@@ -2,6 +2,7 @@
   imports = [
     ./academic
     ./editor
+    ./email
     ./git
     ./learning
     ./multimedia
