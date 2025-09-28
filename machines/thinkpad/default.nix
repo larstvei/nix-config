@@ -11,6 +11,8 @@
     ../../modules/desktop
   ];
 
+  security.pam.services.hyprlock = { };
+
   networking.hostName = "larstvei-think";
 
   # Bootloader.
