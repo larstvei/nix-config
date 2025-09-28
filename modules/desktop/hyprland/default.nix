@@ -166,6 +166,8 @@
         ", XF86AudioMicMute, exec, pamixer --default-source -t"
         ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%"
+        "SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1"
       ]
       ++ builtins.concatLists (
         builtins.genList (
