@@ -32,9 +32,12 @@
 
   services.greetd = {
     enable = true;
-    settings.default_session = {
-      command = "hyprland";
-      user = "larstvei";
+    settings = rec {
+      initial_session = {
+        command = "hyprland > /dev/null 2>&1";
+        user = "larstvei";
+      };
+      default_session = initial_session;
     };
   };
 

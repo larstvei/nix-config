@@ -8,6 +8,8 @@
 
     settings = {
 
+      exec-once = [ "hyprlock || hyprctl dispatch exit" ];
+
       misc.disable_hyprland_logo = true;
 
       general = {
