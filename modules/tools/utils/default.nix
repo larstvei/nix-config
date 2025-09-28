@@ -6,6 +6,7 @@
     gnumake
     jet
     jq
+    localsend
     pandoc
     parallel
     ripgrep
