@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 let
   bg = {
     light = "FAFAFA";
