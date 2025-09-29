@@ -12,7 +12,7 @@
 
   imports = [
     zen-browser.homeModules.beta
-    ./hyprland
+    ./hypr
     ./theme
   ];
 
