@@ -3,10 +3,10 @@
     ./animations
     ./bindings
     ./hypridle
+    ./hyprlock
   ];
 
   programs.kitty.enable = true;
-  programs.hyprlock.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
