@@ -1,4 +1,4 @@
-{ pkgs, emacs-larstvei, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ../../modules/base
@@ -17,7 +17,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit emacs-larstvei; };
+    extraSpecialArgs = { inherit inputs; };
     users.larstvei.imports = [ ../../modules/home/full ];
   };
 }

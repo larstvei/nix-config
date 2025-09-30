@@ -1,4 +1,7 @@
-{ pkgs, nanostatus, ... }:
+{ pkgs, inputs, ... }:
+let
+  nanostatus = inputs.nanostatus.packages.${pkgs.system}.default;
+in
 {
   wayland.windowManager.hyprland.settings = {
     input = {
@@ -51,7 +54,7 @@
       "$mod, -, resizeactive, -10"
 
       "$mod, D, exec, darkman toggle"
-      "$mod, space, exec, ${nanostatus.packages.${pkgs.system}.default}/bin/nanostatus-toggle"
+      "$mod, space, exec, ${nanostatus}/bin/nanostatus-toggle"
       "$mod, backspace, exec, hyprlock"
 
       # Text input (macOS-like way of producing Norwegian characters)

@@ -31,17 +31,14 @@
       nixpkgs,
       home-manager,
       nix-rosetta-builder,
-      nanostatus,
-      emacs-larstvei,
-      zen-browser,
       ...
-    }:
+    }@inputs:
     {
       darwinConfigurations = {
         larstvei-macbookpro = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
 
-          specialArgs = { inherit emacs-larstvei; };
+          specialArgs = { inherit inputs; };
 
           modules = [
             home-manager.darwinModules.default
@@ -54,7 +51,7 @@
 
       nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit emacs-larstvei nanostatus zen-browser; };
+        specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.default
           ./machines/thinkpad

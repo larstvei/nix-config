@@ -1,6 +1,6 @@
-{ pkgs, emacs-larstvei, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = [
-    emacs-larstvei.defaultPackage.${pkgs.system}
+    inputs.emacs-larstvei.defaultPackage.${pkgs.system}
   ];
 }

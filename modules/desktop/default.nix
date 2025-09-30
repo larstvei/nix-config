@@ -1,4 +1,4 @@
-{ pkgs, zen-browser, ... }:
+{ pkgs, inputs, ... }:
 {
 
   home.packages = [
@@ -11,7 +11,7 @@
   ];
 
   imports = [
-    zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.beta
     ./hypr
     ./theme
   ];

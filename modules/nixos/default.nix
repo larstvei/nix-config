@@ -1,10 +1,4 @@
-{
-  pkgs,
-  nanostatus,
-  emacs-larstvei,
-  zen-browser,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
 
   imports = [
@@ -14,7 +8,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit nanostatus emacs-larstvei zen-browser; };
+    extraSpecialArgs = { inherit inputs; };
   };
 
   users.users.larstvei = {
