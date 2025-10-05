@@ -5,6 +5,7 @@
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.grimblast
+    pkgs.google-chrome
     pkgs.pamixer
     pkgs.wl-clipboard
     pkgs.wtype
