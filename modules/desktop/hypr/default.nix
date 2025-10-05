@@ -26,11 +26,10 @@
       workspace = "w[t1], gapsin:0, gapsout:0, border:0, rounding:0";
 
       decoration = {
-        rounding = 15;
+        rounding = 16;
         inactive_opacity = 0.75;
         blur.enabled = false;
         shadow.enabled = false;
-        border_part_of_window = true;
       };
 
       monitor = [ ",preferred,auto,1" ];
