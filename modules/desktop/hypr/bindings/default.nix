@@ -1,6 +1,14 @@
 { pkgs, inputs, ... }:
 let
   nanostatus = inputs.nanostatus.packages.${pkgs.system}.default;
+  toggle-mirror-display = pkgs.writeShellScriptBin "toggle-mirror-display" ''
+    if hyprctl monitors | grep -q '^Monitor eDP-1'; then
+        M=$(hyprctl monitors | awk '/Monitor/ && $2 != "eDP-1" { print $2 }' | head -n1)
+        hyprctl keyword monitor "eDP-1,preferred,auto,1,mirror,$M"
+    else
+        hyprctl keyword monitor "eDP-1,preferred,auto,1"
+    fi
+  '';
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -56,6 +64,7 @@ in
       "$mod, D, exec, darkman toggle"
       "$mod, space, exec, ${nanostatus}/bin/nanostatus-toggle"
       "$mod, backspace, exec, hyprlock"
+      "$shiftMod, M, exec, ${toggle-mirror-display}/bin/toggle-mirror-display"
 
       # Text input (macOS-like way of producing Norwegian characters)
       "$mod, A, exec, wtype 'å'"
