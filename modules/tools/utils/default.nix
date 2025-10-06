@@ -11,6 +11,7 @@
     parallel
     ripgrep
     tokei
+    unzip
     wget
   ];
 }
