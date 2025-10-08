@@ -63,7 +63,7 @@ in
 
       "$mod, D, exec, darkman toggle"
       "$mod, space, exec, ${nanostatus}/bin/nanostatus-toggle"
-      "$mod, backspace, exec, hyprlock"
+      "$mod, delete, exec, hyprlock"
       "$shiftMod, M, exec, ${toggle-mirror-display}/bin/toggle-mirror-display"
 
       # Text input (macOS-like way of producing Norwegian characters)
