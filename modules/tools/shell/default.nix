@@ -11,6 +11,10 @@
         };
       };
 
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
+
       shellInit = ''
         if test "$TERM" != "dumb"
             track_directories
