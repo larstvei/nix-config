@@ -16,7 +16,7 @@
         scipy
         xlsxwriter
         yattag
-        z3
+        z3-solver
       ]
     ))
   ];

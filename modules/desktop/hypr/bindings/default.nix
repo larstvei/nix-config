@@ -42,7 +42,7 @@ in
       # App launchers / session
       "$mod, T, exec, kitty"
       "$mod, E, exec, emacs"
-      "$mod, B, exec, zen"
+      "$mod, B, exec, zen-beta"
       "$mod, Q, killactive"
 
       "$mod, S, exec, grimblast copysave area /tmp/screenshot-$(date +%F--%T).png"

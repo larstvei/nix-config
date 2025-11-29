@@ -19,6 +19,6 @@ in
     imagemagick
     inkscape
     pdf2svg
-    poppler_utils
+    poppler-utils
   ];
 }
