@@ -34,7 +34,7 @@
 
       monitor = [ ",preferred,auto,1" ];
 
-      gestures.workspace_swipe = true;
+      gestures.gesture = "3, horizontal, workspace";
 
       cursor = {
         enable_hyprcursor = false;
