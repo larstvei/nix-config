@@ -1,6 +1,5 @@
 {
   imports = [
-    ./animations
     ./bindings
     ./hypridle
     ./hyprlock
@@ -35,6 +34,15 @@
       monitor = [ ",preferred,auto,1" ];
 
       gestures.gesture = "3, horizontal, workspace";
+
+      animations = {
+        enabled = true;
+        animation = [
+          "global, 1, 1.5, default"
+          "windows, 1, 1.5, default, slide"
+          "workspaces, 0, 0, default"
+        ];
+      };
 
       cursor = {
         enable_hyprcursor = false;
