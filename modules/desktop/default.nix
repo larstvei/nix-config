@@ -1,14 +1,21 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
 
   home.packages = [
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.grimblast
-    pkgs.google-chrome
     pkgs.pamixer
     pkgs.wl-clipboard
     pkgs.wtype
+  ]
+  ++ lib.optionals (pkgs.stdenv.hostPlatform.isx86_64) [
+    pkgs.google-chrome
   ];
 
   imports = [

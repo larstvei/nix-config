@@ -57,5 +57,14 @@
           ./machines/thinkpad
         ];
       };
+
+      nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.default
+          ./machines/vm-aarch64
+        ];
+      };
     };
 }
