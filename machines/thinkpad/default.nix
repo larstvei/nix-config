@@ -4,6 +4,7 @@
     ./hardware
     ../../modules/base
     ../../modules/nixos
+    ../../modules/nixos/graphical
   ];
 
   home-manager.users.larstvei.imports = [

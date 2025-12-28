@@ -24,48 +24,10 @@
 
   console.keyMap = "us";
 
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "hyprland > /dev/null 2>&1";
-        user = "larstvei";
-      };
-      default_session = initial_session;
-    };
-  };
-
-  fonts = {
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        serif = [ "Source Serif 4" ];
-        sansSerif = [ "Source Sans 3" ];
-        monospace = [ "Source Code Pro" ];
-      };
-    };
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   programs._1password.enable = true;
   programs._1password-gui.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.hyprland."org.freedesktop.impl.portal.Settings" = "darkman";
-  };
 
   i18n.defaultLocale = "en_US.UTF-8";
 
