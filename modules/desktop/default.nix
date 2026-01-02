@@ -10,6 +10,7 @@
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.grimblast
+    pkgs.libreoffice
     pkgs.pamixer
     pkgs.wl-clipboard
     pkgs.wtype
