@@ -3,6 +3,7 @@
 
   imports = [
     ../fonts
+    ./printing
   ];
 
   home-manager = {
