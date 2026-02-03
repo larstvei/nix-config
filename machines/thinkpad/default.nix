@@ -13,10 +13,12 @@
   ];
 
   services.fprintd.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   security.pam.services = {
     login.fprintAuth = true;
     sudo.fprintAuth = true;
     hyprlock.fprintAuth = true;
+    login.enableGnomeKeyring = true;
   };
 
   systemd.services.disable-thinkpad-leds = {
