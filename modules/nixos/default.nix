@@ -18,6 +18,7 @@
     home = "/home/larstvei";
     shell = pkgs.fish;
     extraGroups = [
+      "dialout"
       "networkmanager"
       "wheel"
     ];
