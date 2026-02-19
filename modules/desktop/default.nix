@@ -22,7 +22,6 @@
   imports = [
     inputs.zen-browser.homeModules.beta
     ./hypr
-    ./theme
   ];
 
   programs.zen-browser = {
@@ -43,5 +42,10 @@
       OfferToSaveLogins = false;
       # find more options here: https://mozilla.github.io/policy-templates/
     };
+  };
+
+  services.darkman = {
+    enable = true;
+    settings.portal = true;
   };
 }

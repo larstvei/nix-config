@@ -1,3 +1,6 @@
+let
+  theme = import ../theme;
+in
 {
   imports = [
     ./bindings
@@ -54,5 +57,18 @@
         "XCURSOR_SIZE,24"
       ];
     };
+  };
+
+  services.darkman = {
+    lightModeScripts.hyprland-light = ''
+      hyprctl keyword misc:background_color 0x${theme.bg.light}
+      hyprctl keyword general:col.active_border 0xFF${theme.primary.light}
+      hyprctl keyword general:col.inactive_border 0xFF${theme.secondary.light}
+    '';
+    darkModeScripts.hyprland-dark = ''
+      hyprctl keyword misc:background_color 0x${theme.bg.dark}
+      hyprctl keyword general:col.active_border 0xFF${theme.primary.dark}
+      hyprctl keyword general:col.inactive_border 0xFF${theme.secondary.dark}
+    '';
   };
 }
