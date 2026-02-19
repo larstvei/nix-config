@@ -22,6 +22,7 @@
   imports = [
     inputs.zen-browser.homeModules.beta
     ./hypr
+    ./swaylock
   ];
 
   programs.zen-browser = {

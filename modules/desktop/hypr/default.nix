@@ -5,7 +5,7 @@ in
   imports = [
     ./bindings
     ./hypridle
-    ./hyprlock
+    # ./hyprlock
   ];
 
   programs.kitty.enable = true;
@@ -15,7 +15,7 @@ in
 
     settings = {
 
-      exec-once = [ "hyprlock || hyprctl dispatch exit" ];
+      exec-once = [ "swaylock || hyprctl dispatch exit" ];
 
       misc.disable_hyprland_logo = true;
 
