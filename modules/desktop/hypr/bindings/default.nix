@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 let
   nanostatus = inputs.nanostatus.packages.${pkgs.system}.default;
+
   toggle-mirror-display = pkgs.writeShellScriptBin "toggle-mirror-display" ''
     if hyprctl monitors | grep -q '^Monitor eDP-1'; then
         M=$(hyprctl monitors | awk '/Monitor/ && $2 != "eDP-1" { print $2 }' | head -n1)
@@ -13,7 +14,10 @@ in
 {
   wayland.windowManager.hyprland.settings = {
     input = {
-      kb_options = "altwin:swap_alt_win";
+      kb_layout = "us";
+      kb_variant = "mac";
+      # Both Alt keys becomes Option (called Mod5)
+      kb_options = "lv3:alt_switch,apple:alupckeys";
 
       repeat_delay = 300;
       repeat_rate = 50;
@@ -25,56 +29,48 @@ in
       };
     };
 
-    "$mod" = "SUPER";
-    "$shiftMod" = "SUPER_SHIFT";
-
+    "$mod" = "SUPER Mod5";
     bind = [
-      # Master layout
-      "$mod, F, fullscreen"
-      "$mod, Return, layoutmsg, swapwithmaster master"
-      "$mod, minus, layoutmsg, mfact -0.01"
-      "$mod, equal, layoutmsg, mfact +0.01"
-      "$mod, Tab, layoutmsg, cyclenext"
-      "$shiftMod, Tab, layoutmsg, cycleprev"
-      "$mod, comma, layoutmsg, addmaster"
-      "$mod, period, layoutmsg, removemaster"
+      "$mod, code:41, fullscreen" # F (code:41)
+      "$mod, code:24, killactive" # Q (code:24)
+      "$mod, code:119, exec, swaylock" # Delete (code:119)
 
-      # App launchers / session
-      "$mod, T, exec, kitty"
-      "$mod, E, exec, emacs"
-      "$mod, B, exec, zen-beta"
-      "$mod, Q, killactive"
+      # Focus Movement (Super + Alt + HJKL)
 
-      "$mod, S, exec, grimblast copysave area /tmp/screenshot-$(date +%F--%T).png"
-      "$shiftMod, S, exec, grimblast copysave screen /tmp/screenshot-$(date +%F--%T).png"
+      "$mod, code:43, movefocus, l" # H (code:43)
+      "$mod, code:44, movefocus, d" # J (code:44)
+      "$mod, code:45, movefocus, u" # K (code:45)
+      "$mod, code:46, movefocus, r" # L (code:46)
 
-      # Window focus & movement
-      "$mod, H, movefocus, l"
-      "$mod, J, movefocus, d"
-      "$mod, K, movefocus, u"
-      "$mod, L, movefocus, r"
-      "$shiftMod, H, movewindow, l"
-      "$shiftMod, J, movewindow, d"
-      "$shiftMod, K, movewindow, u"
-      "$shiftMod, L, movewindow, r"
+      # Window Movement (Super + Shift + Alt + HJKL)
+      "$mod SHIFT, code:43, movewindow, l"
+      "$mod SHIFT, code:44, movewindow, d"
+      "$mod SHIFT, code:45, movewindow, u"
+      "$mod SHIFT, code:46, movewindow, r"
 
-      "$mod, =, resizeactive, +10"
-      "$mod, -, resizeactive, -10"
+      # Master Layout & Resize
+      "$mod, code:36, layoutmsg, swapwithmaster master" # Return (code:36)
+      "$mod, code:20, layoutmsg, mfact -0.01" # Minus (code:20)
+      "$mod, code:21, layoutmsg, mfact +0.01" # Equal (code:21)
+      "$mod, code:23, layoutmsg, cyclenext" # Tab (code:23)
+      "$mod SHIFT, code:23, layoutmsg, cycleprev"
+      "$mod, code:59, layoutmsg, addmaster" # Comma (code:59)
+      "$mod, code:60, layoutmsg, removemaster" # Period (code:60)
 
-      "$mod, D, exec, darkman toggle"
-      "$mod, space, exec, ${nanostatus}/bin/nanostatus-toggle"
-      "$mod, delete, exec, swaylock"
-      "$shiftMod, M, exec, ${toggle-mirror-display}/bin/toggle-mirror-display"
+      # App Launchers (Super + Alt + Key)
+      "$mod, code:28, exec, kitty" # T (code:28)
+      "$mod, code:26, exec, emacs" # E (code:26)
+      "$mod, code:56, exec, zen-beta" # B (code:56)
+      "$mod, code:40, exec, darkman toggle" # D (code:40)
+      "$mod, code:65, exec, ${nanostatus}/bin/nanostatus-toggle" # Space (code:65)
+      "$mod SHIFT, code:58, exec, ${toggle-mirror-display}/bin/toggle-mirror-display" # M (code:58) + Shift
 
-      # Text input (macOS-like way of producing Norwegian characters)
-      "$mod, A, exec, wtype 'å'"
-      "$mod, O, exec, wtype 'ø'"
-      "$mod, apostrophe, exec, wtype 'æ'"
-      "$shiftMod, A, exec, wtype 'Å'"
-      "$shiftMod, O, exec, wtype 'Ø'"
-      "$shiftMod, apostrophe, exec, wtype 'Æ'"
+      # Screenshots
 
-      # Media & brightness
+      "$mod, code:39, exec, grimblast copysave area /tmp/screenshot-$(date +%F--%T).png" # S (code:39)
+      "$mod SHIFT, code:39, exec, grimblast copysave screen /tmp/screenshot-$(date +%F--%T).png"
+
+      # Media & Brightness (Standard Keys)
       ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
       ", XF86AudioLowerVolume, exec, pamixer -d 5 "
       ", XF86AudioMute, exec, pamixer -t"
@@ -83,19 +79,38 @@ in
       ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%"
       "SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1"
-    ]
-    ++ builtins.concatLists (
-      builtins.genList (
-        i:
-        let
-          code = "1${toString i}";
-          ws = toString (i + 1);
-        in
-        [
-          "$mod, code:${code}, workspace, ${ws}"
-          "$shiftMod, code:${code}, movetoworkspace, ${ws}"
-        ]
-      ) 9
-    );
+
+      # Workspaces (Super + Alt + 1-9)
+      # 1=code:10, 2=code:11, ... 9=code:18, 0=code:19
+      "$mod, code:10, workspace, 1"
+      "$mod SHIFT, code:10, movetoworkspace, 1"
+
+      "$mod, code:11, workspace, 2"
+      "$mod SHIFT, code:11, movetoworkspace, 2"
+
+      "$mod, code:12, workspace, 3"
+      "$mod SHIFT, code:12, movetoworkspace, 3"
+
+      "$mod, code:13, workspace, 4"
+      "$mod SHIFT, code:13, movetoworkspace, 4"
+
+      "$mod, code:14, workspace, 5"
+      "$mod SHIFT, code:14, movetoworkspace, 5"
+
+      "$mod, code:15, workspace, 6"
+      "$mod SHIFT, code:15, movetoworkspace, 6"
+
+      "$mod, code:16, workspace, 7"
+      "$mod SHIFT, code:16, movetoworkspace, 7"
+
+      "$mod, code:17, workspace, 8"
+      "$mod SHIFT, code:17, movetoworkspace, 8"
+
+      "$mod, code:18, workspace, 9"
+      "$mod SHIFT, code:18, movetoworkspace, 9"
+
+      "$mod, code:19, workspace, 10"
+      "$mod SHIFT, code:19, movetoworkspace, 10"
+    ];
   };
 }

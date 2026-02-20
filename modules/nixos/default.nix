@@ -24,7 +24,13 @@
     ];
   };
 
-  console.keyMap = "us";
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "mac";
+    options = "lv3:alt_switch,apple:alupckeys";
+  };
+
+  console.useXkbConfig = true;
 
   nixpkgs.config.allowUnfree = true;
 
