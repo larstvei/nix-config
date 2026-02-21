@@ -1,8 +1,13 @@
-{ pkgs, inputs, ... }:
+{
+  self,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
-    ../../modules/base
-    ../../modules/darwin
+    self.nixosModules.base
+    self.darwinModules.base
   ];
 
   system.primaryUser = "larstvei";
@@ -18,6 +23,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
-    users.larstvei.imports = [ ../../modules/home/full ];
+    users.larstvei.imports = [ self.homeModules.full ];
   };
 }

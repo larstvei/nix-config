@@ -1,14 +1,13 @@
+{ self, ... }:
 {
   imports = [
     ./hardware
-    ../../modules/base
-    ../../modules/nixos
-    # ../../modules/nixos-graphical
+    self.nixosModules.base
+    self.nixosModules.nixos
   ];
 
   home-manager.users.larstvei.imports = [
-    ../../modules/home/minimal
-    # ../../modules/desktop
+    self.homeModules.minimal
   ];
 
   networking.hostName = "larstvei-vm";

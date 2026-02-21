@@ -27,19 +27,37 @@
 
   outputs =
     {
+      self,
       darwin,
       nixpkgs,
       home-manager,
       nix-rosetta-builder,
       ...
     }@inputs:
+    let
+      sharedArgs = { inherit inputs self; };
+    in
     {
+      nixosModules = {
+        base = ./modules/base;
+        nixos = ./modules/nixos;
+        graphical = ./modules/nixos/graphical;
+      };
+
+      homeModules = {
+        full = ./modules/home/full;
+        desktop = ./modules/desktop;
+        minimal = ./modules/home/minimal;
+      };
+
+      darwinModules = {
+        base = ./modules/darwin;
+      };
+
       darwinConfigurations = {
         larstvei-macbookpro = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
-
-          specialArgs = { inherit inputs; };
-
+          specialArgs = sharedArgs;
           modules = [
             home-manager.darwinModules.default
             ./machines/macbook
@@ -51,7 +69,7 @@
 
       nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = sharedArgs;
         modules = [
           home-manager.nixosModules.default
           ./machines/thinkpad
@@ -60,7 +78,7 @@
 
       nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = sharedArgs;
         modules = [
           home-manager.nixosModules.default
           ./machines/vm-aarch64

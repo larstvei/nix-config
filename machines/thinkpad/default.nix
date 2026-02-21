@@ -1,15 +1,16 @@
+{ self, ... }:
 {
   imports = [
     ./keyboard
     ./hardware
-    ../../modules/base
-    ../../modules/nixos
-    ../../modules/nixos/graphical
+    self.nixosModules.base
+    self.nixosModules.nixos
+    self.nixosModules.graphical
   ];
 
   home-manager.users.larstvei.imports = [
-    ../../modules/home/full
-    ../../modules/desktop
+    self.homeModules.full
+    self.homeModules.desktop
   ];
 
   services.gnome.gnome-keyring.enable = true;
