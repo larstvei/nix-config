@@ -54,35 +54,33 @@
         base = ./modules/darwin;
       };
 
-      darwinConfigurations = {
-        larstvei-macbookpro = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = sharedArgs;
-          modules = [
-            home-manager.darwinModules.default
-            ./machines/macbook
-            nix-rosetta-builder.darwinModules.default
-            { nix-rosetta-builder.onDemand = true; }
-          ];
+      darwinConfigurations.larstvei-macbookpro = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = sharedArgs;
+        modules = [
+          home-manager.darwinModules.default
+          ./machines/macbook
+          nix-rosetta-builder.darwinModules.default
+          { nix-rosetta-builder.onDemand = true; }
+        ];
+      };
+
+      nixosConfigurations =
+        let
+          mkLinux =
+            system: path:
+            nixpkgs.lib.nixosSystem {
+              system = system;
+              specialArgs = sharedArgs;
+              modules = [
+                home-manager.nixosModules.default
+                path
+              ];
+            };
+        in
+        {
+          thinkpad = mkLinux "x86_64-linux" ./machines/thinkpad;
+          vm-aarch64 = mkLinux "aarch64-linux" ./machines/vm-aarch64;
         };
-      };
-
-      nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = sharedArgs;
-        modules = [
-          home-manager.nixosModules.default
-          ./machines/thinkpad
-        ];
-      };
-
-      nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = sharedArgs;
-        modules = [
-          home-manager.nixosModules.default
-          ./machines/vm-aarch64
-        ];
-      };
     };
 }
