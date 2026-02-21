@@ -4,7 +4,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "hyprland > /dev/null 2>&1";
+        command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         user = "larstvei";
       };
       default_session = initial_session;
@@ -23,7 +23,15 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
+      pkgs.darkman
     ];
-    config.hyprland."org.freedesktop.impl.portal.Settings" = "darkman";
+
+    config.hyprland = {
+      default = [
+        "hyprland"
+        "gtk"
+      ];
+      "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
+    };
   };
 }

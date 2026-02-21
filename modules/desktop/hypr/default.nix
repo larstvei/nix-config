@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   theme = import ../theme;
 in
@@ -15,7 +16,10 @@ in
 
     settings = {
 
-      exec-once = [ "swaylock || hyprctl dispatch exit" ];
+      exec-once = [
+        "uwsm finalize"
+        "swaylock || hyprctl dispatch exit"
+      ];
 
       misc.disable_hyprland_logo = true;
 
@@ -61,14 +65,16 @@ in
 
   services.darkman = {
     lightModeScripts.hyprland-light = ''
-      hyprctl keyword misc:background_color 0x${theme.bg.light}
-      hyprctl keyword general:col.active_border 0xFF${theme.primary.light}
-      hyprctl keyword general:col.inactive_border 0xFF${theme.secondary.light}
+      while read -r line; do export "$line"; done < <(${pkgs.systemd}/bin/systemctl --user show-environment)
+      ${pkgs.hyprland}/bin/hyprctl keyword misc:background_color 0x${theme.bg.light}
+      ${pkgs.hyprland}/bin/hyprctl keyword general:col.active_border 0xFF${theme.primary.light}
+      ${pkgs.hyprland}/bin/hyprctl keyword general:col.inactive_border 0xFF${theme.secondary.light}
     '';
     darkModeScripts.hyprland-dark = ''
-      hyprctl keyword misc:background_color 0x${theme.bg.dark}
-      hyprctl keyword general:col.active_border 0xFF${theme.primary.dark}
-      hyprctl keyword general:col.inactive_border 0xFF${theme.secondary.dark}
+      while read -r line; do export "$line"; done < <(${pkgs.systemd}/bin/systemctl --user show-environment)
+      ${pkgs.hyprland}/bin/hyprctl keyword misc:background_color 0x${theme.bg.dark}
+      ${pkgs.hyprland}/bin/hyprctl keyword general:col.active_border 0xFF${theme.primary.dark}
+      ${pkgs.hyprland}/bin/hyprctl keyword general:col.inactive_border 0xFF${theme.secondary.dark}
     '';
   };
 }

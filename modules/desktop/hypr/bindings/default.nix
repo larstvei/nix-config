@@ -61,7 +61,7 @@ in
       "$mod, code:28, exec, kitty" # T (code:28)
       "$mod, code:26, exec, emacs" # E (code:26)
       "$mod, code:56, exec, zen-beta" # B (code:56)
-      "$mod, code:40, exec, darkman toggle" # D (code:40)
+      "$mod, code:40, exec, ${pkgs.darkman}/bin/darkman toggle" # D (code:40)
       "$mod, code:65, exec, ${nanostatus}/bin/nanostatus-toggle" # Space (code:65)
       "$mod SHIFT, code:58, exec, ${toggle-mirror-display}/bin/toggle-mirror-display" # M (code:58) + Shift
 

@@ -47,6 +47,10 @@
 
   services.darkman = {
     enable = true;
-    settings.portal = true;
+    settings = {
+      portal = true;
+      lat = 59.9;
+      lng = 10.7;
+    };
   };
 }
