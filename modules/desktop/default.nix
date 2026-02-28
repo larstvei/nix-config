@@ -4,6 +4,9 @@
   inputs,
   ...
 }:
+let
+  theme = import ./theme;
+in
 {
 
   home.packages = [
@@ -42,6 +45,14 @@
       NewTabPage = true;
       OfferToSaveLogins = false;
       # find more options here: https://mozilla.github.io/policy-templates/
+    };
+  };
+
+  programs.zathura = {
+    enable = true;
+    options = {
+      recolor-lightcolor = "#${theme.bg.dark}";
+      recolor-darkcolor = "#${theme.fg.dark}";
     };
   };
 
