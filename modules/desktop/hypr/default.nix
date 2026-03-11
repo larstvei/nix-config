@@ -6,7 +6,6 @@ in
   imports = [
     ./bindings
     ./hypridle
-    # ./hyprlock
   ];
 
   programs.kitty.enable = true;
