@@ -1,6 +1,7 @@
 {
   imports = [
     ./academic
+    ./ai
     ./editor
     ./email
     ./git
