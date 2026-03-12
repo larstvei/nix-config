@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   services.greetd = {
     enable = true;
     settings = rec {
       initial_session = {
         command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-        user = "larstvei";
+        user = user.name;
       };
       default_session = initial_session;
     };

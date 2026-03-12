@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   programs.fish.enable = true;
   environment.shells = [ pkgs.fish ];
@@ -18,7 +18,7 @@
 
       trusted-users = [
         "root"
-        "larstvei"
+        user.name
       ];
 
       substituters = [

@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, user, ... }:
 {
   imports = [
     ./keyboard
@@ -8,7 +8,7 @@
     self.nixosModules.graphical
   ];
 
-  home-manager.users.larstvei.imports = [
+  home-manager.users."${user.name}".imports = [
     self.homeModules.full
     self.homeModules.desktop
   ];
@@ -38,7 +38,7 @@
     };
   };
 
-  networking.hostName = "larstvei-think";
+  networking.hostName = "${user.name}-think";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

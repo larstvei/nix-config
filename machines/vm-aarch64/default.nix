@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, user, ... }:
 {
   imports = [
     ./hardware
@@ -6,11 +6,11 @@
     self.nixosModules.nixos
   ];
 
-  home-manager.users.larstvei.imports = [
+  home-manager.users."${user.name}".imports = [
     self.homeModules.minimal
   ];
 
-  networking.hostName = "larstvei-vm";
+  networking.hostName = "${user.name}-vm";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

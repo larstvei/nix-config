@@ -1,4 +1,9 @@
-{ pkgs, inputs, user, ... }:
+{
+  pkgs,
+  inputs,
+  user,
+  ...
+}:
 {
 
   imports = [
@@ -12,10 +17,10 @@
     extraSpecialArgs = { inherit inputs user; };
   };
 
-  users.users.larstvei = {
+  users.users.${user.name} = {
     isNormalUser = true;
-    description = "Lars Tveito";
-    home = "/home/larstvei";
+    description = user.fullName;
+    home = "/home/${user.name}";
     shell = pkgs.fish;
     extraGroups = [
       "dialout"

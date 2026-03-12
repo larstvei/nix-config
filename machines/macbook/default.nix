@@ -11,12 +11,12 @@
     self.darwinModules.base
   ];
 
-  system.primaryUser = "larstvei";
+  system.primaryUser = user.name;
 
-  networking.hostName = "larstvei-macbookpro";
+  networking.hostName = "${user.name}-macbookpro";
 
-  users.users.larstvei = {
-    home = "/Users/larstvei";
+  users.users.${user.name} = {
+    home = "/Users/${user.name}";
     shell = pkgs.fish;
   };
 
@@ -24,6 +24,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs user; };
-    users.larstvei.imports = [ self.homeModules.full ];
+    users.${user.name}.imports = [ self.homeModules.full ];
   };
 }
