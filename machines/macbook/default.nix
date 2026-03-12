@@ -2,6 +2,7 @@
   self,
   pkgs,
   inputs,
+  user,
   ...
 }:
 {
@@ -22,7 +23,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs user; };
     users.larstvei.imports = [ self.homeModules.full ];
   };
 }

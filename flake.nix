@@ -35,7 +35,15 @@
       ...
     }@inputs:
     let
-      sharedArgs = { inherit inputs self; };
+      sharedArgs = {
+        inherit inputs self;
+        user = {
+          name = "larstvei";
+          email = "larstvei@ifi.uio.no";
+          fullName = "Lars Tveito";
+          smtpUser = "larstvei@uio.no";
+        };
+      };
     in
     {
       nixosModules = {

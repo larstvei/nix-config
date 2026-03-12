@@ -1,9 +1,10 @@
+{ user, ... }:
 {
   programs.git = {
     enable = true;
     settings.user = {
-      name = "larstvei";
-      email = "larstvei@ifi.uio.no";
+      name = user.name;
+      email = user.email;
     };
     ignores = [
       ".envrc"

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   home.packages = [
     pkgs.oama
@@ -40,9 +40,9 @@
   accounts.email = {
     accounts.uio = {
       primary = true;
-      address = "larstvei@ifi.uio.no";
-      userName = "larstvei@ifi.uio.no";
-      realName = "Lars Tveito";
+      address = user.email;
+      userName = user.email;
+      realName = user.fullName;
 
       imap.host = "outlook.office365.com";
 
@@ -68,12 +68,12 @@
         enable = true;
         extraConfig = {
           auth = "xoauth2";
-          user = "larstvei@uio.no";
-          from = "larstvei@ifi.uio.no";
+          user = user.smtpUser;
+          from = user.email;
         };
       };
 
-      passwordCommand = "${pkgs.oama}/bin/oama access larstvei@ifi.uio.no";
+      passwordCommand = "${pkgs.oama}/bin/oama access ${user.email}";
 
       mu.enable = true;
     };
