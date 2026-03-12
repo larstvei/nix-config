@@ -41,7 +41,6 @@
           name = "larstvei";
           email = "larstvei@ifi.uio.no";
           fullName = "Lars Tveito";
-          smtpUser = "larstvei@uio.no";
         };
       };
     in

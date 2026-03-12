@@ -68,8 +68,10 @@
         enable = true;
         extraConfig = {
           auth = "xoauth2";
-          user = user.smtpUser;
           from = user.email;
+          # Exchange requires the top-level @uio.no address for SMTP auth,
+          # rather than @ifi.uio.no that I normally use.
+          user = "${user.name}@uio.no";
         };
       };
 
