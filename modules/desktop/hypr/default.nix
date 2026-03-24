@@ -21,6 +21,7 @@ in
       ];
 
       misc.disable_hyprland_logo = true;
+      misc.allow_session_lock_restore = true;
 
       general = {
         border_size = 2;
