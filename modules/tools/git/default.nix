@@ -1,4 +1,4 @@
-{ user, ... }:
+{ pkgs, user, ... }:
 {
   programs.git = {
     enable = true;
@@ -12,4 +12,8 @@
       ".direnv"
     ];
   };
+
+  home.packages = with pkgs; [
+    gh
+  ];
 }
