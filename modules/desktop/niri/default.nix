@@ -82,7 +82,7 @@ in
         "${mod}+F".action.fullscreen-window = [ ];
         "${mod}+Return".action.maximize-column = [ ];
         "${mod}+O".action.toggle-overview = [ ];
-        "${mod}+Slash".action.show-hotkey-overlay = [ ];
+        "${mod}+Shift+Slash".action.show-hotkey-overlay = [ ];
 
         # Focus (HJKL)
         "${mod}+H".action.focus-column-left = [ ];
@@ -118,14 +118,11 @@ in
           "toggle"
         ];
         "${mod}+Space".action.spawn = [ "${nanostatus}/bin/nanostatus-toggle" ];
-        "${mod}+Shift+M" = {
-          action.spawn = [
-            "sh"
-            "-c"
-            "wl-mirror $(niri msg --json focused-output | jq -r .name)"
-          ];
-          repeat = false;
-        };
+        "${mod}+Shift+M".action.spawn = [
+          "sh"
+          "-c"
+          "wl-mirror $(niri msg --json focused-output | jq -r .name)"
+        ];
 
         # Screenshots (niri built-in)
         "${mod}+S".action.screenshot = [ ];
