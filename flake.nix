@@ -21,6 +21,10 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nanostatus.url = "github:larstvei/nanostatus";
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };

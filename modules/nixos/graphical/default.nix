@@ -1,36 +1,27 @@
-{ pkgs, user, ... }:
+{ pkgs, lib, user, ... }:
 {
   services.greetd = {
     enable = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+        command = "niri-session";
         user = user.name;
       };
       default_session = initial_session;
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
+  programs.niri.enable = true;
 
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
       pkgs.darkman
     ];
 
-    config.hyprland = {
-      default = [
-        "hyprland"
-        "gtk"
-      ];
+    config.niri = {
+      default = lib.mkForce [ "gtk" ];
       "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
     };
   };

@@ -16,6 +16,7 @@ in
     pkgs.libreoffice
     pkgs.pamixer
     pkgs.wl-clipboard
+    pkgs.wl-mirror
     pkgs.wtype
   ]
   ++ lib.optionals (pkgs.stdenv.hostPlatform.isx86_64) [
@@ -24,7 +25,8 @@ in
 
   imports = [
     inputs.zen-browser.homeModules.beta
-    ./hypr
+    ./niri
+    ./swayidle
     ./swaylock
   ];
 
