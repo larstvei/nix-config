@@ -9,8 +9,6 @@ in
 {
   imports = [ inputs.niri.homeModules.niri ];
 
-  programs.kitty.enable = true;
-
   programs.niri = {
     enable = true;
     settings = {
@@ -103,7 +101,7 @@ in
         "${mod}+Delete".action.spawn = [ "swaylock" ];
 
         # App launchers
-        "${mod}+T".action.spawn = [ "kitty" ];
+        "${mod}+T".action.spawn = [ "ghostty" ];
         "${mod}+E".action.spawn = [ "emacs" ];
         "${mod}+B".action.spawn = [ "zen-beta" ];
         "${mod}+D".action.spawn-sh = [ "darkman toggle" ];
