@@ -70,9 +70,7 @@ in
         focus-ring.enable = false;
       };
 
-      spawn-at-startup = [
-        { command = [ "swaylock" ]; }
-      ];
+      spawn-at-startup = [ { command = [ "swaylock" ]; } ];
 
       binds = {
         # Window management
