@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   ...
 }:
@@ -9,8 +8,6 @@ let
 in
 {
   imports = [ inputs.niri.homeModules.niri ];
-
-  programs.niri.package = inputs.niri.packages.${pkgs.system}.niri-unstable;
 
   programs.kitty.enable = true;
 
