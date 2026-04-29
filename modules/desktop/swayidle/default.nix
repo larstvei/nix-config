@@ -5,11 +5,11 @@
     events = [
       {
         event = "before-sleep";
-        command = "loginctl lock-session";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
       }
       {
         event = "lock";
-        command = "pidof swaylock || swaylock";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
       }
     ];
     timeouts = [
