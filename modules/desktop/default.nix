@@ -10,6 +10,7 @@ in
 {
 
   home.packages = [
+    inputs.nanostatus.packages.${pkgs.system}.default
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.grimblast

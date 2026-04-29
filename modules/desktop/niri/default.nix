@@ -5,8 +5,6 @@
 }:
 let
   theme = import ../theme;
-  nanostatus = inputs.nanostatus.packages.${pkgs.system}.default;
-
   mod = "Super+ISO_Level3_Shift";
 in
 {
@@ -113,61 +111,23 @@ in
         "${mod}+T".action.spawn = [ "kitty" ];
         "${mod}+E".action.spawn = [ "emacs" ];
         "${mod}+B".action.spawn = [ "zen-beta" ];
-        "${mod}+D".action.spawn = [
-          "${pkgs.darkman}/bin/darkman"
-          "toggle"
-        ];
-        "${mod}+Space".action.spawn = [ "${nanostatus}/bin/nanostatus-toggle" ];
-        "${mod}+Shift+M".action.spawn = [
-          "sh"
-          "-c"
-          "wl-mirror $(niri msg --json focused-output | jq -r .name)"
-        ];
+        "${mod}+D".action.spawn-sh = [ "darkman toggle" ];
+        "${mod}+Space".action.spawn = [ "nanostatus-toggle" ];
+        "${mod}+Shift+M".action.spawn-sh = [ "wl-mirror $(niri msg --json focused-output | jq -r .name)" ];
 
         # Screenshots (niri built-in)
         "${mod}+S".action.screenshot = [ ];
         "${mod}+Shift+S".action.screenshot-screen = [ ];
 
         # Media & brightness
-        "XF86AudioRaiseVolume".action.spawn = [
-          "pamixer"
-          "-i"
-          "5"
-        ];
-        "XF86AudioLowerVolume".action.spawn = [
-          "pamixer"
-          "-d"
-          "5"
-        ];
-        "XF86AudioMute".action.spawn = [
-          "pamixer"
-          "-t"
-        ];
-        "XF86AudioMicMute".action.spawn = [
-          "pamixer"
-          "--default-source"
-          "-t"
-        ];
-        "XF86MonBrightnessUp".action.spawn = [
-          "brightnessctl"
-          "set"
-          "+5%"
-        ];
-        "XF86MonBrightnessDown".action.spawn = [
-          "brightnessctl"
-          "set"
-          "5%-"
-        ];
-        "Shift+XF86MonBrightnessUp".action.spawn = [
-          "brightnessctl"
-          "set"
-          "100%"
-        ];
-        "Shift+XF86MonBrightnessDown".action.spawn = [
-          "brightnessctl"
-          "set"
-          "1"
-        ];
+        "XF86AudioRaiseVolume".action.spawn-sh = [ "pamixer -i 5" ];
+        "XF86AudioLowerVolume".action.spawn-sh = [ "pamixer -d 5" ];
+        "XF86AudioMute".action.spawn-sh = [ "pamixer -t" ];
+        "XF86AudioMicMute".action.spawn-sh = [ "pamixer --default-source -t" ];
+        "XF86MonBrightnessUp".action.spawn-sh = [ "brightnessctl set +5%" ];
+        "XF86MonBrightnessDown".action.spawn-sh = [ "brightnessctl set 5%-" ];
+        "Shift+XF86MonBrightnessUp".action.spawn-sh = [ "brightnessctl set 100%" ];
+        "Shift+XF86MonBrightnessDown".action.spawn-sh = [ "brightnessctl set 1" ];
 
         # Workspaces
         "${mod}+1".action.focus-column = 1;
