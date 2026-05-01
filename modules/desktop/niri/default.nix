@@ -55,6 +55,16 @@ in
       ];
 
       layout = {
+        preset-column-widths =
+          let
+            phi = 1.618033988749895;
+          in
+          [
+            { proportion = 1.0 / 1.0; } # Maximize
+            { proportion = 1.0 / phi; } # The golden ratio
+            { proportion = 1.0 / 2.0; } # Half
+            { proportion = 1.0 - (1.0 / phi); } # The remainder of the golden ratio
+          ];
         background-color = "#${theme.bg.dark}";
         border = {
           enable = true;
@@ -71,8 +81,8 @@ in
         # Window management
         "${mod}+Q".action.close-window = [ ];
         "${mod}+F".action.fullscreen-window = [ ];
-        "${mod}+Return".action.maximize-column = [ ];
         "${mod}+O".action.toggle-overview = [ ];
+        "${mod}+C".action.center-column = [ ];
         "${mod}+Shift+Slash".action.show-hotkey-overlay = [ ];
 
         # Focus (HJKL)
@@ -93,9 +103,15 @@ in
         "${mod}+Shift+Comma".action.move-column-to-monitor-left = [ ];
         "${mod}+Shift+Period".action.move-column-to-monitor-right = [ ];
 
+        # Consume into columns
+        "${mod}+BracketLeft".action.consume-or-expel-window-left = [ ];
+        "${mod}+BracketRight".action.consume-or-expel-window-right = [ ];
+
         # Resize
         "${mod}+Minus".action.set-column-width = "-1%";
         "${mod}+Equal".action.set-column-width = "+1%";
+        "${mod}+Return".action.switch-preset-column-width = [ ];
+        "${mod}+Shift+Return".action.switch-preset-column-width-back = [ ];
 
         # Lock
         "${mod}+Delete".action.spawn = [ "swaylock" ];
@@ -111,6 +127,8 @@ in
         # Screenshots (niri built-in)
         "${mod}+S".action.screenshot = [ ];
         "${mod}+Shift+S".action.screenshot-screen = [ ];
+        "Print".action.screenshot-screen = [ ];
+        "Shift+Print".action.screenshot-window = [ ];
 
         # Media & brightness
         "XF86AudioRaiseVolume".action.spawn-sh = [ "pamixer -i 5" ];
