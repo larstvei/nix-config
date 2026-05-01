@@ -79,9 +79,8 @@
       nixosConfigurations =
         let
           mkLinux =
-            system: path:
+            path:
             nixpkgs.lib.nixosSystem {
-              system = system;
               specialArgs = sharedArgs;
               modules = [
                 home-manager.nixosModules.default
@@ -90,8 +89,8 @@
             };
         in
         {
-          thinkpad = mkLinux "x86_64-linux" ./machines/thinkpad;
-          vm-aarch64 = mkLinux "aarch64-linux" ./machines/vm-aarch64;
+          thinkpad = mkLinux ./machines/thinkpad;
+          vm-aarch64 = mkLinux ./machines/vm-aarch64;
         };
     };
 }

@@ -10,7 +10,7 @@ in
 {
 
   home.packages = [
-    inputs.nanostatus.packages.${pkgs.system}.default
+    inputs.nanostatus.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.ghostty

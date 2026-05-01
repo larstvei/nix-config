@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
   home.packages = [
-    inputs.emacs-larstvei.defaultPackage.${pkgs.system}
+    inputs.emacs-larstvei.defaultPackage.${pkgs.stdenv.hostPlatform.system}
   ];
 }
