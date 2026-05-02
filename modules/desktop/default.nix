@@ -6,6 +6,8 @@
 }:
 let
   theme = import ./theme;
+  latitude = 59.9;
+  longitude = 10.7;
 in
 {
 
@@ -65,8 +67,14 @@ in
     enable = true;
     settings = {
       portal = true;
-      lat = 59.9;
-      lng = 10.7;
+      lat = latitude;
+      lng = longitude;
     };
+  };
+
+  services.wlsunset = {
+    enable = true;
+    latitude = latitude;
+    longitude = longitude;
   };
 }
