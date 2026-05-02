@@ -131,14 +131,14 @@ in
         "Shift+Print".action.screenshot-window = [ ];
 
         # Media & brightness
-        "XF86AudioRaiseVolume".action.spawn-sh = [ "pamixer -i 5" ];
-        "XF86AudioLowerVolume".action.spawn-sh = [ "pamixer -d 5" ];
-        "XF86AudioMute".action.spawn-sh = [ "pamixer -t" ];
-        "XF86AudioMicMute".action.spawn-sh = [ "pamixer --default-source -t" ];
-        "XF86MonBrightnessUp".action.spawn-sh = [ "brightnessctl set +5%" ];
-        "XF86MonBrightnessDown".action.spawn-sh = [ "brightnessctl set 5%-" ];
-        "Shift+XF86MonBrightnessUp".action.spawn-sh = [ "brightnessctl set 100%" ];
-        "Shift+XF86MonBrightnessDown".action.spawn-sh = [ "brightnessctl set 1" ];
+        "XF86AudioRaiseVolume".action.spawn-sh = [ "swayosd-client --output-volume raise" ];
+        "XF86AudioLowerVolume".action.spawn-sh = [ "swayosd-client --output-volume lower" ];
+        "XF86AudioMute".action.spawn-sh = [ "swayosd-client --output-volume mute-toggle" ];
+        "XF86AudioMicMute".action.spawn-sh = [ "swayosd-client --input-volume mute-toggle" ];
+        "XF86MonBrightnessUp".action.spawn-sh = [ "swayosd-client --brightness raise" ];
+        "XF86MonBrightnessDown".action.spawn-sh = [ "swayosd-client --brightness lower" ];
+        "Shift+XF86MonBrightnessUp".action.spawn-sh = [ "swayosd-client --brightness 100" ];
+        "Shift+XF86MonBrightnessDown".action.spawn-sh = [ "swayosd-client --brightness 1" ];
 
         # Workspaces
         "${mod}+1".action.focus-column = 1;

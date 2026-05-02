@@ -59,6 +59,8 @@ in
     };
   };
 
+  services.swayosd.enable = true;
+
   services.darkman = {
     enable = true;
     settings = {
