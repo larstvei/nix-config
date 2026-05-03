@@ -136,7 +136,9 @@ in
         "XF86AudioMute".action.spawn-sh = [ "swayosd-client --output-volume mute-toggle" ];
         "XF86AudioMicMute".action.spawn-sh = [ "swayosd-client --input-volume mute-toggle" ];
         "XF86MonBrightnessUp".action.spawn-sh = [ "swayosd-client --brightness raise" ];
-        "XF86MonBrightnessDown".action.spawn-sh = [ "swayosd-client --brightness lower" ];
+        "XF86MonBrightnessDown".action.spawn-sh = [
+          "swayosd-client --min-brightness 1 --brightness lower"
+        ];
         "Shift+XF86MonBrightnessUp".action.spawn-sh = [ "swayosd-client --brightness 100" ];
         "Shift+XF86MonBrightnessDown".action.spawn-sh = [ "swayosd-client --brightness 1" ];
 
