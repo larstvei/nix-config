@@ -47,6 +47,35 @@
           fullName = "Lars Tveito";
         };
       };
+
+      machines = {
+        linux = {
+          thinkpad = {
+            system = "x86_64-linux";
+            path = ./machines/thinkpad;
+            homeModules = [
+              self.homeModules.full
+              self.homeModules.desktop
+            ];
+          };
+          vm-aarch64 = {
+            system = "aarch64-linux";
+            path = ./machines/vm-aarch64;
+            homeModules = [ self.homeModules.minimal ];
+          };
+        };
+        darwin = {
+          larstvei-macbookpro = {
+            system = "aarch64-darwin";
+            path = ./machines/macbook;
+            homeModules = [ self.homeModules.full ];
+            extraModules = [
+              nix-rosetta-builder.darwinModules.default
+              { nix-rosetta-builder.onDemand = true; }
+            ];
+          };
+        };
+      };
     in
     {
       nixosModules = {
@@ -65,32 +94,56 @@
         base = ./modules/darwin;
       };
 
-      darwinConfigurations.larstvei-macbookpro = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        specialArgs = sharedArgs;
-        modules = [
-          home-manager.darwinModules.default
-          ./machines/macbook
-          nix-rosetta-builder.darwinModules.default
-          { nix-rosetta-builder.onDemand = true; }
-        ];
-      };
-
-      nixosConfigurations =
-        let
-          mkLinux =
-            path:
-            nixpkgs.lib.nixosSystem {
-              specialArgs = sharedArgs;
-              modules = [
-                home-manager.nixosModules.default
-                path
-              ];
+      homeConfigurations =
+        builtins.mapAttrs (
+          name: machine:
+          home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+              system = machine.system;
+              config.allowUnfree = true;
             };
-        in
-        {
-          thinkpad = mkLinux ./machines/thinkpad;
-          vm-aarch64 = mkLinux ./machines/vm-aarch64;
-        };
+            extraSpecialArgs = sharedArgs;
+            modules = machine.homeModules ++ [
+              {
+                home.username = sharedArgs.user.name;
+                home.homeDirectory =
+                  if builtins.match ".*-darwin" machine.system != null then
+                    "/Users/${sharedArgs.user.name}"
+                  else
+                    "/home/${sharedArgs.user.name}";
+              }
+            ];
+          }
+        ) machines.linux
+        // machines.darwin;
+
+      nixosConfigurations = builtins.mapAttrs (
+        _: machine:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = sharedArgs // {
+            homeProfile = machine.homeModules;
+          };
+          modules = [
+            home-manager.nixosModules.default
+            machine.path
+          ]
+          ++ (machine.extraModules or [ ]);
+        }
+      ) machines.linux;
+
+      darwinConfigurations = builtins.mapAttrs (
+        _: machine:
+        darwin.lib.darwinSystem {
+          system = machine.system;
+          specialArgs = sharedArgs // {
+            homeProfile = machine.homeModules;
+          };
+          modules = [
+            home-manager.darwinModules.default
+            machine.path
+          ]
+          ++ (machine.extraModules or [ ]);
+        }
+      ) machines.darwin;
     };
 }
