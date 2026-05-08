@@ -69,13 +69,11 @@ in
           proportion = 1.0 / 2.0;
         };
         background-color = "#${theme.bg.dark}";
-        border = {
+        focus-ring = {
           enable = true;
           width = 3;
           active.color = "#${theme.primary.dark}";
-          inactive.color = "#${theme.secondary.dark}";
         };
-        focus-ring.enable = false;
       };
 
       spawn-at-startup = [ { command = [ "swaylock" ]; } ];
