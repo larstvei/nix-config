@@ -13,8 +13,6 @@
 
   system.primaryUser = user.name;
 
-  networking.hostName = "${user.name}-macbookpro";
-
   users.users.${user.name} = {
     home = "/Users/${user.name}";
     shell = pkgs.fish;

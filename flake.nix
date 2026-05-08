@@ -65,7 +65,7 @@
           };
         };
         darwin = {
-          larstvei-macbookpro = {
+          macbookpro = {
             system = "aarch64-darwin";
             path = ./machines/macbook;
             homeModules = [ self.homeModules.full ];
@@ -118,7 +118,7 @@
         // machines.darwin;
 
       nixosConfigurations = builtins.mapAttrs (
-        _: machine:
+        name: machine:
         nixpkgs.lib.nixosSystem {
           specialArgs = sharedArgs // {
             homeProfile = machine.homeModules;
@@ -126,13 +126,14 @@
           modules = [
             home-manager.nixosModules.default
             machine.path
+            { networking.hostName = name; }
           ]
           ++ (machine.extraModules or [ ]);
         }
       ) machines.linux;
 
       darwinConfigurations = builtins.mapAttrs (
-        _: machine:
+        name: machine:
         darwin.lib.darwinSystem {
           system = machine.system;
           specialArgs = sharedArgs // {
@@ -141,6 +142,7 @@
           modules = [
             home-manager.darwinModules.default
             machine.path
+            { networking.hostName = name; }
           ]
           ++ (machine.extraModules or [ ]);
         }
