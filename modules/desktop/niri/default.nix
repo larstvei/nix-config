@@ -65,6 +65,9 @@ in
             { proportion = 1.0 / 2.0; } # Half
             { proportion = 1.0 - (1.0 / phi); } # The remainder of the golden ratio
           ];
+        default-column-width = {
+          proportion = 1.0 / 2.0;
+        };
         background-color = "#${theme.bg.dark}";
         border = {
           enable = true;
