@@ -76,5 +76,6 @@ in
     enable = true;
     latitude = latitude;
     longitude = longitude;
+    temperature.night = 3000;
   };
 }
