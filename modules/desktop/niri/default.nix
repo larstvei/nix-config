@@ -1,9 +1,9 @@
 {
   inputs,
+  config,
   ...
 }:
 let
-  theme = import ../theme;
   mod = "Super+ISO_Level3_Shift";
 in
 {
@@ -55,6 +55,8 @@ in
       ];
 
       layout = {
+        border.width = 3;
+        background-color = config.lib.stylix.colors.withHashtag.base00;
         preset-column-widths =
           let
             phi = 1.618033988749895;
@@ -67,12 +69,6 @@ in
           ];
         default-column-width = {
           proportion = 1.0 / 2.0;
-        };
-        background-color = "#${theme.bg.dark}";
-        focus-ring = {
-          enable = true;
-          width = 3;
-          active.color = "#${theme.primary.dark}";
         };
       };
 
@@ -121,7 +117,9 @@ in
         "${mod}+T".action.spawn = [ "ghostty" ];
         "${mod}+E".action.spawn = [ "emacs" ];
         "${mod}+B".action.spawn = [ "zen-beta" ];
-        "${mod}+D".action.spawn-sh = [ "niri msg action do-screen-transition ; darkman toggle" ];
+        "${mod}+D".action.spawn-sh = [
+          "niri msg action do-screen-transition -d 1000 ; darkman toggle"
+        ];
         "${mod}+Space".action.spawn = [ "nanostatus-toggle" ];
         "${mod}+Shift+M".action.spawn-sh = [ "wl-mirror $(niri msg --json focused-output | jq -r .name)" ];
 

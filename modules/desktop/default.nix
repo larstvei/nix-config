@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   inputs,
   ...
 }:
@@ -8,6 +9,11 @@ let
   theme = import ./theme;
   latitude = 59.9;
   longitude = 10.7;
+  activate = path: ''
+    gen=$(systemctl cat home-manager-${config.home.username}.service | awk '/^ExecStart=/ {print $2}')
+    "$gen${path}"
+     niri msg action load-config-file
+  '';
 in
 {
 
@@ -27,14 +33,19 @@ in
   ];
 
   imports = [
+    inputs.niri.homeModules.stylix
+    inputs.stylix.homeModules.stylix
     inputs.zen-browser.homeModules.beta
     ./niri
     ./swayidle
     ./swaylock
   ];
 
+  gtk.gtk4.theme = config.gtk.theme;
+
   programs.zen-browser = {
     enable = true;
+    profiles.default = { };
     policies = {
       DisableAppUpdate = true;
       DisableTelemetry = true;
@@ -53,15 +64,22 @@ in
     };
   };
 
-  programs.zathura = {
-    enable = true;
-    options = {
-      recolor-lightcolor = "#${theme.bg.dark}";
-      recolor-darkcolor = "#${theme.fg.dark}";
-    };
-  };
+  programs.zathura.enable = true;
 
   services.swayosd.enable = true;
+
+  stylix = {
+    enable = true;
+    overlays.enable = false;
+    polarity = "light";
+    base16Scheme = theme.light;
+    targets.zen-browser.profileNames = [ "default" ];
+  };
+
+  specialisation.dark.configuration.stylix = {
+    polarity = lib.mkForce "dark";
+    base16Scheme = lib.mkForce theme.dark;
+  };
 
   services.darkman = {
     enable = true;
@@ -70,6 +88,8 @@ in
       lat = latitude;
       lng = longitude;
     };
+    lightModeScripts.hm-specialisation = activate "/activate";
+    darkModeScripts.hm-specialisation = activate "/specialisation/dark/activate";
   };
 
   services.wlsunset = {

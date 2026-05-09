@@ -25,6 +25,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nanostatus.url = "github:larstvei/nanostatus";
     emacs-larstvei.url = "github:larstvei/emacs-flake";
   };
