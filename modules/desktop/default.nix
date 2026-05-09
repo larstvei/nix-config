@@ -55,6 +55,20 @@ in
     base16Scheme = theme.light;
     # We style zen manually.
     targets.zen-browser.enable = false;
+    fonts = {
+      serif = {
+        package = pkgs.source-serif;
+        name = "Source Serif 4";
+      };
+      sansSerif = {
+        package = pkgs.source-sans;
+        name = "Source Sans 3";
+      };
+      monospace = {
+        package = pkgs.source-code-pro;
+        name = "Source Code Pro";
+      };
+    };
   };
 
   specialisation.dark.configuration.stylix = {
