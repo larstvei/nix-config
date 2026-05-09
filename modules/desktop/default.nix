@@ -39,30 +39,10 @@ in
     ./niri
     ./swayidle
     ./swaylock
+    ./zen-browser
   ];
 
   gtk.gtk4.theme = config.gtk.theme;
-
-  programs.zen-browser = {
-    enable = true;
-    profiles.default = { };
-    policies = {
-      DisableAppUpdate = true;
-      DisableTelemetry = true;
-
-      AutofillAddressesEnabled = false;
-      AutoFillCreditCardEnabled = false;
-      DisablePocket = true;
-      DisableProfileImport = true;
-      DisableSetDesktopBackground = true;
-      DontCheckDefaultBrowser = true;
-      HomepageURL = "https://start.hadi.diy";
-      StartPage = "homepage";
-      NewTabPage = true;
-      OfferToSaveLogins = false;
-      # find more options here: https://mozilla.github.io/policy-templates/
-    };
-  };
 
   programs.zathura.enable = true;
 
@@ -73,7 +53,8 @@ in
     overlays.enable = false;
     polarity = "light";
     base16Scheme = theme.light;
-    targets.zen-browser.profileNames = [ "default" ];
+    # We style zen manually.
+    targets.zen-browser.enable = false;
   };
 
   specialisation.dark.configuration.stylix = {

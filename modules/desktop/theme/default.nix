@@ -1,8 +1,5 @@
 {
   light = {
-    scheme = "nano-light";
-    author = "Lars Tveito (after Nicolas Rougier's nano-theme)";
-
     base00 = "FAFAFA"; # bg
     base01 = "F5F7F8"; # highlight
     base02 = "ECEFF1"; # subtle
@@ -23,9 +20,6 @@
   };
 
   dark = {
-    scheme = "nano-dark";
-    author = "Lars Tveito (after Nicolas Rougier's nano-theme)";
-
     base00 = "2E3440"; # bg
     base01 = "3B4252"; # highlight
     base02 = "434C5E"; # subtle
