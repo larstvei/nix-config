@@ -121,7 +121,7 @@ in
         "${mod}+T".action.spawn = [ "ghostty" ];
         "${mod}+E".action.spawn = [ "emacs" ];
         "${mod}+B".action.spawn = [ "zen-beta" ];
-        "${mod}+D".action.spawn-sh = [ "darkman toggle" ];
+        "${mod}+D".action.spawn-sh = [ "niri msg action do-screen-transition ; darkman toggle" ];
         "${mod}+Space".action.spawn = [ "nanostatus-toggle" ];
         "${mod}+Shift+M".action.spawn-sh = [ "wl-mirror $(niri msg --json focused-output | jq -r .name)" ];
 
