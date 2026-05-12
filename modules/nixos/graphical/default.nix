@@ -1,4 +1,9 @@
-{ pkgs, lib, user, ... }:
+{
+  pkgs,
+  lib,
+  user,
+  ...
+}:
 {
   services.greetd = {
     enable = true;
@@ -17,12 +22,15 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
       pkgs.darkman
     ];
 
     config.niri = {
       default = lib.mkForce [ "gtk" ];
       "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
     };
   };
 }
