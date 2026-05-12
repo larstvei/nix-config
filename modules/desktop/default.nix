@@ -18,12 +18,14 @@ in
 {
 
   home.packages = [
-    inputs.nanostatus.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.adwaita-icon-theme
     pkgs.brightnessctl
     pkgs.ghostty
     pkgs.libreoffice
+    pkgs.nmgui
+    pkgs.overskride
     pkgs.pamixer
+    pkgs.pwvucontrol
     pkgs.wl-clipboard
     pkgs.wl-mirror
     pkgs.wtype
@@ -39,6 +41,7 @@ in
     ./niri
     ./swayidle
     ./swaylock
+    ./waybar
     ./zen-browser
   ];
 
@@ -65,8 +68,8 @@ in
         name = "Source Sans 3";
       };
       monospace = {
-        package = pkgs.source-code-pro;
-        name = "Source Code Pro";
+        package = pkgs.nerd-fonts.sauce-code-pro;
+        name = "SauceCodePro Nerd Font";
       };
     };
   };

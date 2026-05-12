@@ -3,7 +3,7 @@
   fonts = {
     packages = with pkgs; [
       iosevka
-      source-code-pro
+      nerd-fonts.sauce-code-pro
       source-sans
       source-serif
     ];
@@ -12,7 +12,7 @@
       defaultFonts = {
         serif = [ "Source Serif 4" ];
         sansSerif = [ "Source Sans 3" ];
-        monospace = [ "Source Code Pro" ];
+        monospace = [ "SauceCodePro Nerd Font" ];
       };
     };
   };

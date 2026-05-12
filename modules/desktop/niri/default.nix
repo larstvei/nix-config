@@ -52,6 +52,21 @@ in
             };
           clip-to-geometry = true;
         }
+
+        {
+          matches = [
+            { title = "^(Pipewire Volume Control|overskride|Network Manager)$"; }
+          ];
+          tiled-state = false;
+          open-floating = true;
+          default-floating-position = {
+            relative-to = "top-right";
+            x = 16;
+            y = 16;
+          };
+          default-column-width.fixed = 400;
+          default-window-height.fixed = 500;
+        }
       ];
 
       layout = {
@@ -120,7 +135,7 @@ in
         "${mod}+D".action.spawn-sh = [
           "niri msg action do-screen-transition -d 1000 ; darkman toggle"
         ];
-        "${mod}+Space".action.spawn = [ "nanostatus-toggle" ];
+        "${mod}+Space".action.spawn-sh = [ "pkill waybar || waybar &" ];
         "${mod}+Shift+M".action.spawn-sh = [ "wl-mirror $(niri msg --json focused-output | jq -r .name)" ];
 
         # Screenshots (niri built-in)
