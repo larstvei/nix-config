@@ -54,8 +54,8 @@ in
   stylix = {
     enable = true;
     overlays.enable = false;
-    polarity = "light";
-    base16Scheme = theme.light;
+    polarity = "dark";
+    base16Scheme = theme.dark;
     # We style zen manually.
     targets.zen-browser.enable = false;
     fonts = {
@@ -74,9 +74,16 @@ in
     };
   };
 
-  specialisation.dark.configuration.stylix = {
-    polarity = lib.mkForce "dark";
-    base16Scheme = lib.mkForce theme.dark;
+  specialisation = {
+    light.configuration.stylix = {
+      polarity = lib.mkForce "light";
+      base16Scheme = lib.mkForce theme.light;
+    };
+
+    dark.configuration.stylix = {
+      polarity = lib.mkForce "dark";
+      base16Scheme = lib.mkForce theme.dark;
+    };
   };
 
   services.darkman = {
@@ -86,7 +93,7 @@ in
       lat = latitude;
       lng = longitude;
     };
-    lightModeScripts.hm-specialisation = activate "/activate";
+    lightModeScripts.hm-specialisation = activate "/specialisation/light/activate";
     darkModeScripts.hm-specialisation = activate "/specialisation/dark/activate";
   };
 
