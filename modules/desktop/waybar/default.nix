@@ -127,6 +127,7 @@ in
 
     style = ''
       * { font-size: 11pt; }
+      window#waybar > box { padding: 0 1rem; }
       tooltip { border-width: 3px; }
     '';
   };
