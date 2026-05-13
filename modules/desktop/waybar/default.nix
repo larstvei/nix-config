@@ -1,3 +1,10 @@
+{ config, ... }:
+let
+  colors = config.lib.stylix.colors.withHashtag;
+  highlight = x: ''<span foreground="${colors.base0C}">${x}</span>'';
+  warning = x: ''<span foreground="${colors.base08}">${x}</span>'';
+  faded = x: ''<span foreground="${colors.base03}">${x}</span>'';
+in
 {
   programs.waybar = {
     enable = true;
@@ -29,8 +36,8 @@
         format = "{}";
         max-length = 72;
         rewrite = {
-          "(.*) - Gnu Emacs at thinkpad" = " $1";
-          "(.*) — Zen Browser" = "󰈹 $1";
+          "(.*) - Gnu Emacs at thinkpad" = "${highlight ""} $1";
+          "(.*) — Zen Browser" = "${highlight "󰖟"} $1";
         };
       };
 
@@ -38,35 +45,35 @@
         format = "{:%H:%M}";
         format-alt = "{:%A %d %B %Y, %H:%M:%S}";
         interval = 1;
+        tooltip-format = "{:%A %d %B %Y, %H:%M:%S}";
       };
 
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {
-          activated = "󰅶";
-          deactivated = "󰾪";
+          activated = highlight "󰛊";
+          deactivated = faded "󰾫";
         };
         tooltip-format-activated = "Idle inhibitor: on";
         tooltip-format-deactivated = "Idle inhibitor: off";
       };
 
       cpu = {
-        format = "󰻠 {usage}%";
+        format = "";
         interval = 5;
         tooltip-format = "{avg_frequency} GHz\n{usage}% used";
         on-click = "ghostty -e htop";
       };
 
       memory = {
-        format = "󰍛 {percentage}%";
+        format = "";
         interval = 10;
         tooltip-format = "{used:0.1f} GiB used\n{avail:0.1f} GiB available\n{swapUsed:0.1f} GiB swap";
       };
 
       pulseaudio = {
-        format = "{icon} {volume}%";
-        format-bluetooth = "󰂯 {volume}%";
-        format-muted = "󰖁 muted";
+        format = "{icon}";
+        format-muted = faded "󰖁";
         format-icons = {
           default = [
             "󰕿"
@@ -80,32 +87,34 @@
       };
 
       network = {
-        format-wifi = "󰤨 {essid}";
-        format-disconnected = "󰤭 ";
+        format-wifi = " ";
+        format-disconnected = faded "󰤯 ";
+        format-disabled = faded "󰖪 ";
         interval = 5;
         tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\n↑ {bandwidthUpBits}  ↓ {bandwidthDownBits}";
         on-click = "nmgui";
       };
 
       bluetooth = {
+        format = "󰂯";
+        format-off = faded "󰂲";
+        format-connected = highlight "󰂱";
+        tooltip-format = "Status: {status}";
+        tooltip-format-connected = "{device_enumerate}";
+        tooltip-format-enumerate-connected = "{device_alias}";
+        tooltip-format-enumerate-connected-battery = "{device_alias}  {device_battery_percentage}%";
         on-click = "overskride";
       };
 
       battery = {
         format = "{icon} {capacity}%";
-        format-charging = "󰂄 {capacity}%";
+        format-charging = "${highlight "󰂄"} {capacity}%";
         format-plugged = "󰚥 {capacity}%";
-        format-full = "󰁹";
+        format-full = "${highlight "󰁹"}";
         format-icons = [
-          "󰂎"
-          "󰁻"
-          "󰁼"
-          "󰁽"
+          (warning "󰁼")
           "󰁾"
-          "󰁿"
-          "󰂀"
           "󰂁"
-          "󰂂"
           "󰁹"
         ];
         states = {
@@ -119,9 +128,6 @@
     style = ''
       * { font-size: 11pt; }
       tooltip { border-width: 3px; }
-      #battery.warning { color: @base0A; }
-      #battery.critical { color: @base08; }
-      #idle_inhibitor.activated { color: @base0C; }
     '';
   };
 }
