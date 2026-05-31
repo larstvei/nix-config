@@ -29,6 +29,7 @@ in
     pkgs.wl-clipboard
     pkgs.wl-mirror
     pkgs.wtype
+    pkgs.zathura
   ]
   ++ lib.optionals (pkgs.stdenv.hostPlatform.isx86_64) [
     pkgs.google-chrome
@@ -46,8 +47,6 @@ in
   ];
 
   gtk.gtk4.theme = config.gtk.theme;
-
-  programs.zathura.enable = true;
 
   services.swayosd.enable = true;
 
