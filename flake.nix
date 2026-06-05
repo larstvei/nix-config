@@ -92,6 +92,7 @@
         full = ./modules/home/full;
         desktop = ./modules/desktop;
         minimal = ./modules/home/minimal;
+        backup = ./modules/backup;
       };
 
       darwinModules = {

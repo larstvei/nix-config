@@ -11,6 +11,7 @@
   home-manager.users."${user.name}".imports = [
     self.homeModules.full
     self.homeModules.desktop
+    self.homeModules.backup
   ];
 
   services.gnome.gnome-keyring.enable = true;
