@@ -40,6 +40,7 @@ in
     inputs.stylix.homeModules.stylix
     inputs.zen-browser.homeModules.beta
     ./niri
+    ./obs
     ./swayidle
     ./swaylock
     ./waybar

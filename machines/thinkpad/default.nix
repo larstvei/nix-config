@@ -1,4 +1,9 @@
-{ self, user, ... }:
+{
+  self,
+  user,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./keyboard
@@ -13,6 +18,11 @@
     self.homeModules.desktop
     self.homeModules.backup
   ];
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = [ pkgs.intel-media-driver ];
+  };
 
   services.gnome.gnome-keyring.enable = true;
 

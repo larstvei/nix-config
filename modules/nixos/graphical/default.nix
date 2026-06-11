@@ -27,7 +27,10 @@
     ];
 
     config.niri = {
-      default = lib.mkForce [ "gtk" ];
+      default = lib.mkForce [
+        "gnome"
+        "gtk"
+      ];
       "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
       "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
       "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
