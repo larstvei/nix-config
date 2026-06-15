@@ -69,6 +69,12 @@ in
         }
       ];
 
+      overview = {
+        backdrop-color = config.lib.stylix.colors.withHashtag.base00;
+      };
+
+      gestures.hot-corners.enable = false;
+
       layout = {
         border.width = 3;
         background-color = config.lib.stylix.colors.withHashtag.base00;
