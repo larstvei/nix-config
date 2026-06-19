@@ -6,7 +6,10 @@ let
     name = "${n}-hex";
     value = "light-dark(#${theme.light.${n}}, #${theme.dark.${n}})";
   }) theme.light;
-  css = stylixTemplate { inherit colors; };
+  css = stylixTemplate {
+    inherit colors;
+    opacityHex = "";
+  };
   zenChrome = builtins.replaceStrings [ "#light-dark(" ] [ "light-dark(" ] css;
 in
 {

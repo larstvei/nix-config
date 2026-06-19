@@ -47,8 +47,6 @@ in
     ./zen-browser
   ];
 
-  gtk.gtk4.theme = config.gtk.theme;
-
   services.swayosd.enable = true;
 
   stylix = {
