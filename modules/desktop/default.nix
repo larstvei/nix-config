@@ -13,6 +13,7 @@ let
     gen=$(systemctl cat home-manager-${config.home.username}.service | awk '/^ExecStart=/ {print $2}')
     "$gen${path}"
      niri msg action load-config-file
+     ${pkgs.fish}/bin/fish -c 'set -U __stylix_theme_generation (date +%s%N)'
   '';
 in
 {
@@ -82,6 +83,18 @@ in
       polarity = lib.mkForce "dark";
       base16Scheme = lib.mkForce theme.dark;
     };
+  };
+
+  xdg.configFile."fish/stylix-theme.fish".source = config.lib.stylix.colors {
+    templateRepo = config.stylix.inputs.base16-fish;
+  };
+
+  programs.fish.functions.reload_stylix_theme_on_change = {
+    onVariable = "__stylix_theme_generation";
+    body = ''
+      source ~/.config/fish/stylix-theme.fish
+      base16-${config.lib.stylix.colors.slug}
+    '';
   };
 
   services.darkman = {
